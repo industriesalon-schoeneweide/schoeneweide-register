@@ -1,8 +1,8 @@
 # Eigentümer- & Investorenregister – Zukunftsort Schöneweide
 
-Interaktives Register mit 43 Standort-Profilen für den Touchscreen im Industriesalon Schöneweide.
+Interaktives Register mit 47 Standort-Profilen für den Touchscreen im Industriesalon Schöneweide.
 
-**Live:** [https://DEIN-USERNAME.github.io/schoeneweide-register/](https://DEIN-USERNAME.github.io/schoeneweide-register/)
+**Live:** [https://industriesalon-schoeneweide.github.io/schoeneweide-register/](https://industriesalon-schoeneweide.github.io/schoeneweide-register/)
 
 ## Inhalt
 

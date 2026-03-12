@@ -13,7 +13,7 @@ Interaktives Register mit 51 Standort-Profilen für den Touchscreen im Industrie
 
 ## Versionshistorie
 
-- **v05** (2026-03-12): 51 Einträge (+4 neue: Spreepark, Atelierhaus Reinbeckstraße/Bryan Adams/Kwade, Atelierhaus 79/GSE, Rahmenplan OSW/LOKATION:S). Aktualisiert: Rathenau-Hallen → Eigentümer XIOR Student Housing NV (über BaseCamp), Bärenquell → The Brew/Activum SG/HCM, BUWOG → Vonovia/330 Mio. EUR. XTRO/Treptow-Ateliers auf XIOR-Kontext aktualisiert. Umfassende Faktenprüfung aller 51 Einträge.
+- **v05** (2026-03-12): 51 Einträge (+4 neue: Spreepark, Atelierhaus Reinbeckstraße/Bryan Adams/Kwade, Atelierhaus 79/GSE, Rahmenplan OSW/LOKATION:S). Aktualisiert: Rathenau-Hallen → Eigentümer XIOR Student Housing NV (über BaseCamp), Bärenquell → The Brew/Activum SG/HCM, BUWOG → Vonovia/330 Mio. EUR. XTRO/Treptow-Ateliers auf XIOR-Kontext aktualisiert. Umfassende Faktenprüfung aller 51 Einträge. **Karten-Korrekturen:** Wilhelmine (Trockland) von Zone Nalepastraße nach Zone Oberschöneweide verschoben, „Toruro-Kompl." → „Urban Banks / XIOR", „Rathenau Villa" korrekt ausgeschrieben.
 - **v04** (2026-03-12): 47 Einträge, Umlaut-Korrektur, Quellen erweitert, Spree 27 aktualisiert, Behrens-Ufer aktualisiert
 - **v03** (2026-03-12): Spree 27 korrigiert (Tabbertstraße, 18.000 m² BGF, Bauvorbescheid)
 - **v02** (2026-03-11): 47 Einträge (+4 neue: W90a, W91, W92, W93), KAOS #15 aktualisiert

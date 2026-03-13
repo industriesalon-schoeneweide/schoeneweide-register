@@ -1,50 +1,66 @@
 # Eigentümer- & Investorenregister – Zukunftsort Schöneweide
 
-Interaktives Register mit 51 Standort-Profilen für den Touchscreen im Industriesalon Schöneweide.
+Interaktives Register mit 59 Standort-Profilen für den Touchscreen im Industriesalon Schöneweide.
 
 **Live:** [https://industriesalon-schoeneweide.github.io/schoeneweide-register/](https://industriesalon-schoeneweide.github.io/schoeneweide-register/)
 
 ## Inhalt
 
 - `index.html` — Komplettes Register (Single-File, keine Abhängigkeiten)
-- Interaktive SVG-Karte (Nord → Süd)
+- Interaktive SVG-Karte (Nord → Süd) mit 59 Standorten
 - Filter: Aktiv / Entwicklung / Geplant / Unklar / Mieter
 - Detailansicht mit Branche, Kaufpreis, Vornutzung, Website
+- Vollständige Integration von 60+ Quelldokumenten
+
+## Datenquellen
+
+| Quelle | Umfang | Seit Version |
+|--------|--------|-------------|
+| LOKATION:S Rahmenplan Oberschöneweide 2025–2026 | 142 Seiten | v06 |
+| WISTA Regionalmanagement Schöneweide 2011–2017 | 57 Seiten | v06.1 |
+| Gründungserklärung Standortgemeinschaft | Mai 2024 | v07 |
+| Protokolle Gründungskomitee | Juni–Okt. 2024 | v07 |
+| Stellungnahme der Standortgemeinschaft | Sept. 2025 | v07 |
+| Standort-Workshop OSW (Dokumentation + Folien) | Juni 2025 | v07 |
+| Machbarkeitsstudie Industriemuseum (Band 1–4) | 144 Seiten | v07 |
+| BZI-Broschüre 2023 | 2023 | v07 |
+| Potenzial Schöneweide / Brüssel-Videokonferenz | 2020 | v07 |
+| Tourismus-Konzept Treptow-Köpenick (CIMA) | 2025–2026 | v07 |
+| Transformationsort / Gelingensbedingungen | März 2026 | v07 |
+| Futura Biennale Dokumentation | 2026 | v07 |
+| DIEAG-Szenarien BE-Ufer | Nov. 2024 | v07 |
+| Diverse PPTX (Umfragen, Berichte, Präsentationen) | 2023–2025 | v07 |
 
 ## Versionshistorie
 
-- **v05** (2026-03-12): 51 Einträge (+4 neue: Spreepark, Atelierhaus Reinbeckstraße/Bryan Adams/Kwade, Atelierhaus 79/GSE, Rahmenplan OSW/LOKATION:S). Aktualisiert: Rathenau-Hallen → Eigentümer XIOR Student Housing NV (über BaseCamp), Bärenquell → The Brew/Activum SG/HCM, BUWOG → Vonovia/330 Mio. EUR. XTRO/Treptow-Ateliers auf XIOR-Kontext aktualisiert. Umfassende Faktenprüfung aller 51 Einträge. **Karten-Korrekturen:** Wilhelmine (Trockland) von Zone Nalepastraße nach Zone Oberschöneweide verschoben, „Toruro-Kompl." → „Urban Banks / XIOR", „Rathenau Villa" korrekt ausgeschrieben.
-- **v04** (2026-03-12): 47 Einträge, Umlaut-Korrektur, Quellen erweitert, Spree 27 aktualisiert, Behrens-Ufer aktualisiert
-- **v03** (2026-03-12): Spree 27 korrigiert (Tabbertstraße, 18.000 m² BGF, Bauvorbescheid)
-- **v02** (2026-03-11): 47 Einträge (+4 neue: W90a, W91, W92, W93), KAOS #15 aktualisiert
+- **v07** (2026-03-13): **Vollständige Workspace-Integration.** 59 Einträge (+4 neue: Innovationspark Wuhlheide, TGS Spreeknie, Electropolis Berlin/Industriemuseum-Projekt, botspot GmbH). 25 bestehende Einträge aktualisiert aus 60+ Workspace-Dokumenten. Gründungsprozess vollständig dokumentiert: 22 Teilnehmer Gründung 22.05.2024, 6 Komitee-Mitglieder, 4 Komitee-Treffen, 6 Forderungen an Bezirk, Stellungnahme 19.09.2025, BIG-Gesetz-Prüfung, Umfrageergebnisse, Lange Nacht geplant. Neue Kontaktdaten: DIEAG (Keck/Sonnenburg), Basecamp (Kralovanszky), Wilms (von Salm), BAE (Ijspeert), S Immo (König), Reinbeckhallen (Herrmann), KAOS (Rueß). Technologie-Daten: botspot 3D-Scanning 20+ MA, Qinous/Rolls-Royce Energiespeicher 70 MA, TGS Spreeknie 21.616 m², Innovationspark Wuhlheide 32 ha. Quellenmanifest (source_manifest.json) als Prozesssicherung eingeführt.
+- **v06.1** (2026-03-13): **WISTA Regionalmanagement 2011-17 Integration.** 16 Einträge mit RM-Daten angereichert: 14 Schlüsselareale, Arbeitskräftepotenzial 2030, ITZ 4.0 Vorgeschichte, ÖPNV-Studie, Standortmarke.
+- **v06** (2026-03-13): **LOKATION:S Rahmenplan Vollintegration.** 55 Einträge (+4 neue: Handwerkerhof, ITZ 4.0, IBA 2034, Standortgemeinschaft). Alle 51 Bestandseinträge mit Rahmenplan-Daten angereichert.
+- **v05** (2026-03-12): 51 Einträge (+4 neue: Spreepark, Atelierhaus Reinbeckstraße, Atelierhaus 79, Rahmenplan OSW). Faktenprüfung aller Einträge.
+- **v04** (2026-03-12): 47 Einträge, Umlaut-Korrektur, Quellen erweitert
+- **v03** (2026-03-12): Spree 27 korrigiert (Tabbertstraße, 18.000 m² BGF)
+- **v02** (2026-03-11): 47 Einträge (+4 neue: W90a, W91, W92, W93)
 - **v01** (2026-03-10): 43 Einträge, Erstversion GitHub Pages
 
-## Neue Einträge v05
+## Neue Einträge v07
 
 | # | Name | Eigentümer | Gebiet |
 |---|------|-----------|--------|
-| 48 | Spreepark | Land Berlin / Grün Berlin GmbH | Plänterwald |
-| 49 | Atelierhaus Reinbeckstraße | Bryan Adams / Künstler (Kwade, Voigt, Jankowski) | Oberschöneweide |
-| 50 | Atelierhaus 79 | GSE gGmbH | Oberschöneweide |
-| 51 | Rahmenplan Oberschöneweide | Bezirksamt Treptow-Köpenick / LOKATION:S | Oberschöneweide |
-
-## Aktualisierte Einträge v05
-
-| # | Name | Änderung |
-|---|------|---------|
-| 05 | Rathenau-Hallen / BaseCamp Campus | Eigentümer: XIOR Student Housing NV (über BaseCamp Student GmbH) |
-| 06 | Rathenau-Hallen-Komplex / Urban Banks Berlin | XIOR-Übernahme 2022/2023 (939 Mio. EUR BaseCamp-Gruppe) |
-| 11 | Bärenquell-Brauerei | Activum SG Capital/HCM, Projektname „The Brew" |
-| 27 | BUWOG Weydenhof + Wohnwerk | Vonovia, ~1.210 Wohnungen gesamt, ~330 Mio. EUR |
-| 31 | XTRO Ateliers | Toruro → XIOR/BaseCamp-Kontext |
+| 56 | Innovationspark Wuhlheide | Land Berlin / diverse | Wuhlheide |
+| 57 | TGS Spreeknie | Land Berlin | Oberschöneweide |
+| 58 | Electropolis Berlin (Industriemuseum) | Industriesalon Schöneweide e.V. | Oberschöneweide |
+| 59 | botspot GmbH (3D-Scanning) | botspot GmbH | Oberschöneweide |
 
 ## Literatur & Quellen
 
+- LOKATION:S – Rahmenplan Oberschöneweide 2025–2026 (142 Seiten)
+- WISTA Regionalmanagement Schöneweide 2011–2017 (57 Seiten)
+- Machbarkeitsstudie Industriemuseum Berlin Schöneweide (Band 1–4)
+- BZI-Broschüre 2023 (Berliner Zentrum für Industriekultur)
+- Gründungserklärung & Stellungnahme Standortgemeinschaft Schöneweide
+- Standortkonferenz-Dokumentation Juni 2025
 - Metropole Berlin. Die Wiederentdeckung der Industriekultur (bebra verlag)
-- Berliner Schriften zur Industriekultur, Bd. 2 (Industriesalon Schöneweide)
-- Erzählte Technikgeschichte (Schriftenreihe Industriesalon Schöneweide e.V.)
-- Das historische Silicon Valley in Schöneweide 1895–1933 (industriesalon.de)
-- LOKATION:S – Rahmenplan Oberschöneweide 2025–2026
+- Berliner Schriften zur Industriekultur, Bd. 2
 - Grün Berlin GmbH – Spreepark Projektdokumentation 2024–2027
 - entwicklungsstadt.de | Berliner Morgenpost | Berliner Zeitung | Tagesspiegel | rbb24
 

@@ -20,6 +20,37 @@
 <style>
 @font-face { font-family: 'Inter'; font-style: normal; font-weight: 300 800; src: local('Inter'), local('Segoe UI'), local('Roboto'), local('Helvetica Neue'); }
 @font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 500 700; src: local('Playfair Display'), local('Georgia'), local('Times New Roman'); }
+
+.ff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+.ff-zone { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; position: relative; overflow: hidden; }
+.ff-zone::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.ff-zone.osw::before { background: linear-gradient(90deg, #3B82F6, #60A5FA); }
+.ff-zone.nsw::before { background: linear-gradient(90deg, #F59E0B, #FBBF24); }
+.ff-zone.nal::before { background: linear-gradient(90deg, #10B981, #34D399); }
+.ff-zone.other::before { background: linear-gradient(90deg, #8B5CF6, #A78BFA); }
+.ff-zone-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 10px; letter-spacing: 0.5px; }
+.ff-zone.osw .ff-zone-name { color: #60A5FA; }
+.ff-zone.nsw .ff-zone-name { color: #FBBF24; }
+.ff-zone.nal .ff-zone-name { color: #34D399; }
+.ff-zone.other .ff-zone-name { color: #A78BFA; }
+.ff-row { display: flex; justify-content: space-between; align-items: baseline; padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.ff-row:last-child { border-bottom: none; }
+.ff-label { font-size: 11px; color: var(--text2); }
+.ff-value { font-size: 13px; font-weight: 600; color: var(--text); }
+.ff-bar-wrap { height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; margin-top: 8px; overflow: hidden; }
+.ff-bar { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+.ff-bar.osw { background: #3B82F6; }
+.ff-bar.nsw { background: #F59E0B; }
+.ff-bar.nal { background: #10B981; }
+.ff-bar.other { background: #8B5CF6; }
+.ff-total { text-align: center; margin: 20px 0 8px; }
+.ff-total-num { font-size: 42px; font-weight: 800; background: linear-gradient(135deg, #3B82F6, #10B981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+.ff-total-label { font-size: 12px; color: var(--text2); margin-top: 4px; }
+.ff-standort-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+.ff-standort-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; text-align: center; }
+.ff-standort-num { font-size: 22px; font-weight: 700; }
+.ff-standort-sub { font-size: 11px; color: var(--text2); margin-top: 2px; }
+@media (max-width: 600px) { .ff-grid { grid-template-columns: 1fr; } }
 </style>
 <style>
 :root {
@@ -146,6 +177,37 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 .overlay-content a { color: var(--blue); text-decoration: none; }
 .overlay-content a:hover { text-decoration: underline; }
 
+
+.ff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+.ff-zone { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; position: relative; overflow: hidden; }
+.ff-zone::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.ff-zone.osw::before { background: linear-gradient(90deg, #3B82F6, #60A5FA); }
+.ff-zone.nsw::before { background: linear-gradient(90deg, #F59E0B, #FBBF24); }
+.ff-zone.nal::before { background: linear-gradient(90deg, #10B981, #34D399); }
+.ff-zone.other::before { background: linear-gradient(90deg, #8B5CF6, #A78BFA); }
+.ff-zone-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 10px; letter-spacing: 0.5px; }
+.ff-zone.osw .ff-zone-name { color: #60A5FA; }
+.ff-zone.nsw .ff-zone-name { color: #FBBF24; }
+.ff-zone.nal .ff-zone-name { color: #34D399; }
+.ff-zone.other .ff-zone-name { color: #A78BFA; }
+.ff-row { display: flex; justify-content: space-between; align-items: baseline; padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.ff-row:last-child { border-bottom: none; }
+.ff-label { font-size: 11px; color: var(--text2); }
+.ff-value { font-size: 13px; font-weight: 600; color: var(--text); }
+.ff-bar-wrap { height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; margin-top: 8px; overflow: hidden; }
+.ff-bar { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+.ff-bar.osw { background: #3B82F6; }
+.ff-bar.nsw { background: #F59E0B; }
+.ff-bar.nal { background: #10B981; }
+.ff-bar.other { background: #8B5CF6; }
+.ff-total { text-align: center; margin: 20px 0 8px; }
+.ff-total-num { font-size: 42px; font-weight: 800; background: linear-gradient(135deg, #3B82F6, #10B981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+.ff-total-label { font-size: 12px; color: var(--text2); margin-top: 4px; }
+.ff-standort-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+.ff-standort-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px; text-align: center; }
+.ff-standort-num { font-size: 22px; font-weight: 700; }
+.ff-standort-sub { font-size: 11px; color: var(--text2); margin-top: 2px; }
+@media (max-width: 600px) { .ff-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -159,19 +221,86 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 
     <p>Dieses Register dokumentiert <strong>59 Standort-Profile</strong> &mdash; Eigentümer, Investoren, Projektentwickler und Mieter, die den Zukunftsort heute prägen. Es entstand im Auftrag des Industriesalon Schöneweide e.V. und basiert auf über 60 Quelldokumenten.</p>
 
-    <h3>Schlüsselzahlen</h3>
-    <p>
-      <span class="key-figure">130 ha Zukunftsort</span>
-      <span class="key-figure">63 ha Rahmenplangebiet</span>
-      <span class="key-figure">~400 Betriebe</span>
-      <span class="key-figure">~4.000 Beschäftigte</span>
-      <span class="key-figure">49 Baudenkmäler</span>
-      <span class="key-figure">300.000 m² Denkmalsubstanz</span>
-      <span class="key-figure">250.000 m² Neubaupotenzial</span>
-      <span class="key-figure">~400 Kreativschaffende</span>
-      <span class="key-figure">9.000 HTW-Studierende</span>
-      <span class="key-figure">1,1 Mrd. EUR Behrens-Ufer</span>
-    </p>
+    <h3>Facts &amp; Figures</h3>
+
+    <div class="ff-total">
+      <div class="ff-total-num">59</div>
+      <div class="ff-total-label">Standort-Profile im Register</div>
+    </div>
+
+    <div class="ff-standort-row">
+      <div class="ff-standort-card">
+        <div class="ff-standort-num" style="color:#60A5FA;">130 ha</div>
+        <div class="ff-standort-sub">Zukunftsort-Fläche</div>
+      </div>
+      <div class="ff-standort-card">
+        <div class="ff-standort-num" style="color:#34D399;">63 ha</div>
+        <div class="ff-standort-sub">Rahmenplangebiet</div>
+      </div>
+      <div class="ff-standort-card">
+        <div class="ff-standort-num" style="color:#FBBF24;">~1,5 Mrd.</div>
+        <div class="ff-standort-sub">EUR Investitionsvolumen (geschätzt)</div>
+      </div>
+      <div class="ff-standort-card">
+        <div class="ff-standort-num" style="color:#F472B6;">14.000+</div>
+        <div class="ff-standort-sub">HTW-Studierende</div>
+      </div>
+    </div>
+
+    <div class="ff-grid">
+      <!-- OBERSCHÖNEWEIDE -->
+      <div class="ff-zone osw">
+        <div class="ff-zone-name">OBERSCHÖNEWEIDE</div>
+        <div class="ff-row"><span class="ff-label">Standort-Profile</span><span class="ff-value">42</span></div>
+        <div class="ff-row"><span class="ff-label">Eigentümer</span><span class="ff-value">20</span></div>
+        <div class="ff-row"><span class="ff-label">Mieter</span><span class="ff-value">12</span></div>
+        <div class="ff-row"><span class="ff-label">Projektentwickler</span><span class="ff-value">7</span></div>
+        <div class="ff-row"><span class="ff-label">Eigentümer + PE</span><span class="ff-value">3</span></div>
+        <div class="ff-row"><span class="ff-label">Status: Aktiv</span><span class="ff-value">27</span></div>
+        <div class="ff-row"><span class="ff-label">In Entwicklung</span><span class="ff-value">7</span></div>
+        <div class="ff-row"><span class="ff-label">Geplant / Unklar</span><span class="ff-value">8</span></div>
+        <div class="ff-bar-wrap"><div class="ff-bar osw" style="width:71%"></div></div>
+      </div>
+
+      <!-- NIEDERSCHÖNEWEIDE -->
+      <div class="ff-zone nsw">
+        <div class="ff-zone-name">NIEDERSCHÖNEWEIDE</div>
+        <div class="ff-row"><span class="ff-label">Standort-Profile</span><span class="ff-value">9</span></div>
+        <div class="ff-row"><span class="ff-label">Eigentümer</span><span class="ff-value">4</span></div>
+        <div class="ff-row"><span class="ff-label">Mieter</span><span class="ff-value">4</span></div>
+        <div class="ff-row"><span class="ff-label">Projektentwickler</span><span class="ff-value">1</span></div>
+        <div class="ff-row"><span class="ff-label">Status: Aktiv</span><span class="ff-value">6</span></div>
+        <div class="ff-row"><span class="ff-label">In Entwicklung</span><span class="ff-value">2</span></div>
+        <div class="ff-row"><span class="ff-label">Unklar</span><span class="ff-value">1</span></div>
+        <div class="ff-bar-wrap"><div class="ff-bar nsw" style="width:15%"></div></div>
+      </div>
+
+      <!-- NALEPASTRASSE -->
+      <div class="ff-zone nal">
+        <div class="ff-zone-name">NALEPASTRASSE</div>
+        <div class="ff-row"><span class="ff-label">Standort-Profile</span><span class="ff-value">3</span></div>
+        <div class="ff-row"><span class="ff-label">Eigentümer</span><span class="ff-value">2</span></div>
+        <div class="ff-row"><span class="ff-label">Eigentümer + PE</span><span class="ff-value">1</span></div>
+        <div class="ff-row"><span class="ff-label">Status: Aktiv</span><span class="ff-value">1</span></div>
+        <div class="ff-row"><span class="ff-label">In Entwicklung</span><span class="ff-value">1</span></div>
+        <div class="ff-row"><span class="ff-label">Geplant</span><span class="ff-value">1</span></div>
+        <div class="ff-bar-wrap"><div class="ff-bar nal" style="width:5%"></div></div>
+      </div>
+
+      <!-- WEITERE STANDORTE -->
+      <div class="ff-zone other">
+        <div class="ff-zone-name">WEITERE STANDORTE</div>
+        <div class="ff-row"><span class="ff-label">Wuhlheide</span><span class="ff-value">2</span></div>
+        <div class="ff-row"><span class="ff-label">Plänterwald</span><span class="ff-value">1</span></div>
+        <div class="ff-row"><span class="ff-label">Sonstige</span><span class="ff-value">2</span></div>
+        <div class="ff-row"><span class="ff-label">Highlights</span></div>
+        <div class="ff-row"><span class="ff-label" style="font-style:italic;">Spreepark: 126 Mio. EUR</span></div>
+        <div class="ff-row"><span class="ff-label" style="font-style:italic;">Innovationspark: 90% vermietet</span></div>
+        <div class="ff-bar-wrap"><div class="ff-bar other" style="width:8%"></div></div>
+      </div>
+    </div>
+
+    <p style="font-size:12px;color:var(--text2);margin-top:12px;">Balken zeigen den Anteil am Gesamtregister (59 Profile). Datenstand: März 2026. Quellen: LOKATION:S-Rahmenplan, WISTA RM, Standortgemeinschaft, eigene Recherche.</p>
 
     <h3>Warum dieses Register</h3>
     <p>Die Eigentümerstruktur in Schöneweide ist fragmentiert und oft intransparent. Wer hier investiert, entwickelt oder nutzt, ist für Bürger, Verwaltung und Standortakteure gleichermaßen schwer zu überblicken. Dieses Register schafft Transparenz: Es macht sichtbar, wem was gehört, was geplant ist und welche offenen Fragen bestehen &mdash; als Grundlage für den Eigentümerdialog, den die Standortgemeinschaft Schöneweide und der LOKATION:S-Rahmenplan als Schlüsselmaßnahme identifiziert haben.</p>

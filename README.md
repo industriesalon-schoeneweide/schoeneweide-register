@@ -7,10 +7,24 @@ Interaktives Register mit 59 Standort-Profilen für den Touchscreen im Industrie
 ## Inhalt
 
 - `index.html` — Komplettes Register (Single-File, keine Abhängigkeiten)
-- Interaktive SVG-Karte (Nord → Süd) mit 59 Standorten
+- Interaktive SVG-Karte (Nord → Süd) mit 59 Standorten in 4 Teilgebieten
 - Filter: Aktiv / Entwicklung / Geplant / Unklar / Mieter
 - Detailansicht mit Branche, Kaufpreis, Vornutzung, Website
+- **„Über den Standort"** — Einleitung mit Geschichte und Facts & Figures nach Teilgebiet
+- **„Quellen"** — Quellenverzeichnis mit allen 60+ Dokumenten
 - Vollständige Integration von 60+ Quelldokumenten
+
+## Facts & Figures (nach Teilgebiet)
+
+| Teilgebiet | Profile | Eigentümer | Mieter | Projektentwickler | Aktiv | Entwicklung |
+|------------|---------|-----------|--------|-------------------|-------|-------------|
+| Oberschöneweide | 42 | 20 | 12 | 7 (+3 E+P) | 27 | 7 |
+| Niederschöneweide | 9 | 4 | 4 | 1 | 6 | 2 |
+| Nalepastraße | 3 | 2 | — | — (+1 E+P) | 1 | 1 |
+| Weitere (Wuhlheide, Plänterwald etc.) | 5 | 2 | 2 | — (+1 E+P) | 2 | 1 |
+| **Gesamt** | **59** | **28** | **18** | **8 (+5 E+P)** | **36** | **11** |
+
+Kennzahlen: 130 ha Zukunftsort · 63 ha Rahmenplangebiet · ~1,5 Mrd. EUR geschätztes Investitionsvolumen · 14.000+ HTW-Studierende
 
 ## Datenquellen
 
@@ -33,7 +47,7 @@ Interaktives Register mit 59 Standort-Profilen für den Touchscreen im Industrie
 
 ## Versionshistorie
 
-- **v07** (2026-03-13): **Vollständige Workspace-Integration.** 59 Einträge (+4 neue: Innovationspark Wuhlheide, TGS Spreeknie, Electropolis Berlin/Industriemuseum-Projekt, botspot GmbH). 25 bestehende Einträge aktualisiert aus 60+ Workspace-Dokumenten. Gründungsprozess vollständig dokumentiert: 22 Teilnehmer Gründung 22.05.2024, 6 Komitee-Mitglieder, 4 Komitee-Treffen, 6 Forderungen an Bezirk, Stellungnahme 19.09.2025, BIG-Gesetz-Prüfung, Umfrageergebnisse, Lange Nacht geplant. Neue Kontaktdaten: DIEAG (Keck/Sonnenburg), Basecamp (Kralovanszky), Wilms (von Salm), BAE (Ijspeert), S Immo (König), Reinbeckhallen (Herrmann), KAOS (Rueß). Technologie-Daten: botspot 3D-Scanning 20+ MA, Qinous/Rolls-Royce Energiespeicher 70 MA, TGS Spreeknie 21.616 m², Innovationspark Wuhlheide 32 ha. Quellenmanifest (source_manifest.json) als Prozesssicherung eingeführt.
+- **v07** (2026-03-13): **Vollständige Workspace-Integration + Facts & Figures.** 59 Einträge (+4 neue: Innovationspark Wuhlheide, TGS Spreeknie, Electropolis Berlin/Industriemuseum-Projekt, botspot GmbH). 25 bestehende Einträge aktualisiert aus 60+ Workspace-Dokumenten. Neue Features: „Über den Standort"-Panel mit Einleitung und **Facts & Figures nach Teilgebiet** (Oberschöneweide 42, Niederschöneweide 9, Nalepastraße 3, Weitere 5). „Quellen"-Panel mit vollständigem Quellenverzeichnis. Kartenlabel korrigiert (Wilhelminenhofstraße). Gründungsprozess vollständig dokumentiert: 22 Teilnehmer Gründung 22.05.2024, 6 Komitee-Mitglieder, 4 Komitee-Treffen, 6 Forderungen an Bezirk, Stellungnahme 19.09.2025, BIG-Gesetz-Prüfung, Umfrageergebnisse, Lange Nacht geplant. Quellenmanifest (source_manifest.json) als Prozesssicherung eingeführt.
 - **v06.1** (2026-03-13): **WISTA Regionalmanagement 2011-17 Integration.** 16 Einträge mit RM-Daten angereichert: 14 Schlüsselareale, Arbeitskräftepotenzial 2030, ITZ 4.0 Vorgeschichte, ÖPNV-Studie, Standortmarke.
 - **v06** (2026-03-13): **LOKATION:S Rahmenplan Vollintegration.** 55 Einträge (+4 neue: Handwerkerhof, ITZ 4.0, IBA 2034, Standortgemeinschaft). Alle 51 Bestandseinträge mit Rahmenplan-Daten angereichert.
 - **v05** (2026-03-12): 51 Einträge (+4 neue: Spreepark, Atelierhaus Reinbeckstraße, Atelierhaus 79, Rahmenplan OSW). Faktenprüfung aller Einträge.

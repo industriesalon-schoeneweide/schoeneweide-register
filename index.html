@@ -124,15 +124,158 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 .unknown-card .desc { font-size: 13px; color: var(--text2); margin-top: 3px; line-height: 1.5; }
 .map-footer { margin-top: 24px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 12px; color: var(--text2); text-align: center; }
 @media (min-width: 1400px) { .sidebar { width: 400px; } }
+
+/* Intro & Sources Panel */
+.info-btn { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3); color: var(--blue); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif; margin-left: 8px; }
+.info-btn:hover { background: rgba(59,130,246,0.2); }
+.src-btn { background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.3); color: var(--green); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif; margin-left: 8px; }
+.src-btn:hover { background: rgba(34,197,94,0.2); }
+.overlay-panel { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 9999; display: none; justify-content: center; align-items: flex-start; padding: 40px 20px; overflow-y: auto; }
+.overlay-panel.show { display: flex; }
+.overlay-content { max-width: 800px; width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; position: relative; }
+.overlay-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--text2); font-size: 28px; cursor: pointer; line-height: 1; }
+.overlay-close:hover { color: var(--text); }
+.overlay-content h2 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 20px; color: var(--accent); }
+.overlay-content h3 { font-size: 16px; font-weight: 600; margin-top: 24px; margin-bottom: 10px; color: var(--text); }
+.overlay-content p { font-size: 14px; line-height: 1.7; color: var(--text2); margin-bottom: 12px; }
+.overlay-content .key-figure { display: inline-block; background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.2); border-radius: 6px; padding: 3px 10px; margin: 2px 4px; font-size: 13px; color: var(--accent); font-weight: 500; }
+.overlay-content .source-list { list-style: none; padding: 0; }
+.overlay-content .source-list li { font-size: 13px; line-height: 1.6; color: var(--text2); padding: 6px 0; border-bottom: 1px solid var(--border); }
+.overlay-content .source-list li:last-child { border-bottom: none; }
+.overlay-content .source-cat { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); margin-top: 24px; margin-bottom: 10px; font-weight: 600; }
+.overlay-content a { color: var(--blue); text-decoration: none; }
+.overlay-content a:hover { text-decoration: underline; }
+
 </style>
 </head>
 <body>
+
+<!-- INTRO PANEL -->
+<div class="overlay-panel" id="introPanel" onclick="if(event.target===this)this.classList.remove('show')">
+  <div class="overlay-content">
+    <button class="overlay-close" onclick="document.getElementById('introPanel').classList.remove('show')">&times;</button>
+    <h2>Zukunftsort Schöneweide</h2>
+    <p>Oberschöneweide im Berliner Südosten ist einer von elf offiziell ausgewiesenen <strong>Zukunftsorten</strong> des Landes Berlin &mdash; nach Adlershof und der Urban Tech Republic der drittgrößte. Was den Ort von anderen Zukunftsorten unterscheidet, ist die ungewöhnliche Dichte seiner Transformationsgeschichte: Von der Gründung der &bdquo;Elektropolis&ldquo; in den 1890er Jahren über 30.000 Industriearbeitsplätze, den Zusammenbruch nach 1990 bis zur heutigen Neuerfindung als Standort für Wissenschaft, Technologie und Kreativwirtschaft.</p>
+
+    <p>Dieses Register dokumentiert <strong>59 Standort-Profile</strong> &mdash; Eigentümer, Investoren, Projektentwickler und Mieter, die den Zukunftsort heute prägen. Es entstand im Auftrag des Industriesalon Schöneweide e.V. und basiert auf über 60 Quelldokumenten.</p>
+
+    <h3>Schlüsselzahlen</h3>
+    <p>
+      <span class="key-figure">130 ha Zukunftsort</span>
+      <span class="key-figure">63 ha Rahmenplangebiet</span>
+      <span class="key-figure">~400 Betriebe</span>
+      <span class="key-figure">~4.000 Beschäftigte</span>
+      <span class="key-figure">49 Baudenkmäler</span>
+      <span class="key-figure">300.000 m² Denkmalsubstanz</span>
+      <span class="key-figure">250.000 m² Neubaupotenzial</span>
+      <span class="key-figure">~400 Kreativschaffende</span>
+      <span class="key-figure">9.000 HTW-Studierende</span>
+      <span class="key-figure">1,1 Mrd. EUR Behrens-Ufer</span>
+    </p>
+
+    <h3>Warum dieses Register</h3>
+    <p>Die Eigentümerstruktur in Schöneweide ist fragmentiert und oft intransparent. Wer hier investiert, entwickelt oder nutzt, ist für Bürger, Verwaltung und Standortakteure gleichermaßen schwer zu überblicken. Dieses Register schafft Transparenz: Es macht sichtbar, wem was gehört, was geplant ist und welche offenen Fragen bestehen &mdash; als Grundlage für den Eigentümerdialog, den die Standortgemeinschaft Schöneweide und der LOKATION:S-Rahmenplan als Schlüsselmaßnahme identifiziert haben.</p>
+
+    <h3>Die Geschichte in Schichten</h3>
+    <p><strong>1890&ndash;1945 &bdquo;Elektropolis&ldquo;:</strong> Emil Rathenau gründet an der Oberspree einen der ersten elektrotechnischen Großstandorte Europas. 1897 geht das erste Drehstromkraftwerk des Kontinents in Betrieb. Peter Behrens entwirft den legendären NAG-Bau (1914&ndash;17) &mdash; in seinem Atelier arbeiten Gropius, Mies van der Rohe und Le Corbusier. Die Nationale Automobilgesellschaft (NAG) baut hier auch Elektrofahrzeuge &mdash; ein frühes Kapitel der E-Mobilität.</p>
+    <p><strong>1945&ndash;1990 Sozialistischer Industriestandort:</strong> Über 30.000 Arbeitsplätze in den Volkseigenen Betrieben KWO, TRO und Werk für Fernsehelektronik. Eine integrierte Industriestadt mit kurzen Wegen zwischen Arbeitsplatz und Wohnung.</p>
+    <p><strong>1990&ndash;2010 Deindustrialisierung:</strong> Über 21.000 Arbeitsplätze gehen verloren. 300.000 m² Denkmalsubstanz stehen leer. Spekulative Eigentümer warten auf Wertsteigerung. Gleichzeitig entsteht eine Zwischennutzungsökonomie &mdash; Künstler, Kreative, Kulturinitiativen siedeln sich an.</p>
+    <p><strong>Seit 2009 Neuerfindung:</strong> Drei Strukturentscheidungen &mdash; HTW-Campus (2009), Regionalmanagement WISTA (2011&ndash;2021), private Investitionsdynamik (Behrens-Ufer, Trockland, MaHalla, Reinbeckhallen). 2024: Gründung der Standortgemeinschaft Schöneweide. 2025/26: LOKATION:S-Rahmenplan, Standort-Workshop, Stellungnahme, Futura Biennale.</p>
+
+    <h3>Herausgeber</h3>
+    <p><strong>Industriesalon Schöneweide e.V.</strong><br>Reinbeckstraße 9&ndash;10, 12459 Berlin<br>
+    <a href="https://www.industriesalon.de" target="_blank">industriesalon.de</a><br>
+    Sprecher Standortgemeinschaft: Klaus Burmeister</p>
+    <p style="font-size:12px;color:var(--text2);margin-top:16px;">Stand: März 2026 &middot; v07</p>
+  </div>
+</div>
+
+<!-- SOURCES PANEL -->
+<div class="overlay-panel" id="srcPanel" onclick="if(event.target===this)this.classList.remove('show')">
+  <div class="overlay-content">
+    <button class="overlay-close" onclick="document.getElementById('srcPanel').classList.remove('show')">&times;</button>
+    <h2>Quellenverzeichnis</h2>
+    <p>Dieses Register basiert auf der systematischen Auswertung folgender Quellen. Alle Dokumente wurden vollständig gelesen und integriert.</p>
+
+    <div class="source-cat">Primärquellen</div>
+    <ul class="source-list">
+      <li><strong>LOKATION:S GmbH / Bezirksamt Treptow-Köpenick (2026):</strong> Rahmenplan Oberschöneweide. Entwurf Januar 2026, 142 Seiten. Öffentliche Beteiligung via mein.berlin.de, 02.02.&ndash;03.03.2026.</li>
+      <li><strong>WISTA-MANAGEMENT GmbH (2017):</strong> Berlin Schöneweide. Entwicklung eines profilierten Wirtschafts- und Wissenschaftsstandortes. 6 Jahre Regionalmanagement. Broschüre, 57 Seiten.</li>
+      <li><strong>Steiner Architektur-GmbH / Industriesalon (o.J.):</strong> Machbarkeitsstudie Industriemuseum Berlin Schöneweide. Band 1&ndash;4, 144 Seiten.</li>
+    </ul>
+
+    <div class="source-cat">Standortgemeinschaft Schöneweide</div>
+    <ul class="source-list">
+      <li><strong>Standortgemeinschaft Schöneweide (2024):</strong> Gründungserklärung vom 22. Mai 2024.</li>
+      <li><strong>Standortgemeinschaft Schöneweide (2024):</strong> Protokolle Gründungskomitee, 4 Sitzungen Juni&ndash;Oktober 2024.</li>
+      <li><strong>Standortgemeinschaft Schöneweide (2024):</strong> Umfrageergebnisse April 2024 &mdash; 6 zentrale Standorthemen.</li>
+      <li><strong>Standortgemeinschaft Schöneweide (2025):</strong> Stellungnahme an Bezirksamt Treptow-Köpenick, 19. September 2025. 6 Forderungen.</li>
+      <li><strong>Standortgemeinschaft Schöneweide (2025):</strong> Schreiben an den Bezirk Treptow-Köpenick, Juli 2025.</li>
+      <li><strong>Standortgemeinschaft Schöneweide (2025):</strong> Jahresauftakt 22. Januar 2025 (Agenda, Bericht, TN-Liste).</li>
+      <li><strong>Standortgemeinschaft Schöneweide (2025):</strong> Bewerbung &bdquo;Mittendrin! &ndash; Lange Nacht der Wilhelminenhofstraße&ldquo;, Mai 2025.</li>
+      <li><strong>Nicht bei Null &ndash; Ziele und Selbstverständnis (2024).</strong> Arbeitsdokument Gründungskomitee.</li>
+      <li><strong>Standortgemeinschaft und BID (2024).</strong> Prüfung Berliner Immobilien- und Standortgemeinschafts-Gesetz.</li>
+    </ul>
+
+    <div class="source-cat">Standort-Workshop Juni 2025</div>
+    <ul class="source-list">
+      <li><strong>Bezirksamt TK / LOKATION:S (2025):</strong> Dokumentation Standort-Workshop Oberschöneweide, 03.06.2025.</li>
+      <li><strong>Bezirksamt TK / LOKATION:S (2025):</strong> Standort-Workshop Folien Vortragsteil.</li>
+      <li><strong>Bezirksamt TK / LOKATION:S (2025):</strong> Alle Präsentationen Standortkonferenz, 95 Seiten.</li>
+      <li><strong>Standortgemeinschaft (2025):</strong> Beitrag der Standortgemeinschaft Schöneweide (Präsentation).</li>
+    </ul>
+
+    <div class="source-cat">Berliner Zentrum Industriekultur</div>
+    <ul class="source-list">
+      <li><strong>BZI (2023):</strong> Broschüre Industriekultur Schöneweide. Berliner Zentrum Industriekultur, 2023.</li>
+    </ul>
+
+    <div class="source-cat">Vorgeschichte &amp; Kontext</div>
+    <ul class="source-list">
+      <li><strong>WISTA-MANAGEMENT GmbH (2020):</strong> Potenzial Schöneweide. Arbeitspapier, März 2020.</li>
+      <li><strong>Berliner Zukunftsorte (2020):</strong> Brüssel-Videokonferenz &bdquo;Zukunftsort Schöneweide&ldquo;, September 2020.</li>
+      <li><strong>Burmeister, Klaus (2021):</strong> Vorgeschichte Standortgemeinschaft Schöneweide 2020&ndash;2021.</li>
+      <li><strong>DIEAG (2024):</strong> Szenarien Behrens-Ufer / BE-U, November 2024.</li>
+      <li><strong>ARL (o.J.):</strong> Positionspapier Akademie für Raumentwicklung (Leibniz-Gemeinschaft).</li>
+    </ul>
+
+    <div class="source-cat">Tourismus-Konzept Treptow-Köpenick</div>
+    <ul class="source-list">
+      <li><strong>CIMA / tourism plan B (2025&ndash;26):</strong> Tourismuskonzept Treptow-Köpenick. Kick-off Sept. 2025, Experten-Workshops Nov. 2025, Meilenstein-Sitzung Feb. 2026.</li>
+    </ul>
+
+    <div class="source-cat">Zukunftsort-Dokumente 2026</div>
+    <ul class="source-list">
+      <li><strong>Burmeister, Klaus (2026):</strong> Schöneweide. Anatomie eines Transformationsortes. Arbeitspapier, März 2026.</li>
+      <li><strong>Burmeister, Klaus (2026):</strong> Gelingensbedingungen urbaner Transformation. März 2026.</li>
+      <li><strong>Industriesalon (2026):</strong> BZI-Workshop Industriekultur, März 2026.</li>
+    </ul>
+
+    <div class="source-cat">Weitere Quellen</div>
+    <ul class="source-list">
+      <li><strong>Industriesalon Schöneweide e.V. (2026):</strong> Futura Biennale &ndash; Die 1. Biennale der Zukünfte. Dokumentation.</li>
+      <li><strong>Industriesalon Schöneweide e.V. (2020ff.):</strong> Ortsgeschichte Schöneweide &ndash; Elektropolis Berlin. <a href="https://www.industriesalon.de/ortsgeschichte/" target="_blank">industriesalon.de</a></li>
+      <li><strong>Senatsverwaltung für Wirtschaft Berlin (2022):</strong> Masterplan Industriestadt Berlin 2022&ndash;2026.</li>
+      <li><strong>Senatsverwaltung für Stadtentwicklung Berlin (2024):</strong> IBA&rsquo;34 &ndash; Internationale Bauausstellung Berlin-Brandenburg.</li>
+      <li><strong>Berliner Landesdenkmalamt (2023):</strong> AEG Oberschöneweide &ndash; Denkmalensemble.</li>
+      <li><strong>Stiftung Topographie des Terrors (2006ff.):</strong> Dokumentationszentrum NS-Zwangsarbeit Berlin-Schöneweide.</li>
+      <li><strong>Völklein, Marco (2024):</strong> &bdquo;Berlin ist ein riesiges Freilichtmuseum der Industriekultur.&ldquo; Süddeutsche Zeitung, 27.06.2024.</li>
+      <li><strong>entwicklungsstadt.de, Berliner Morgenpost, Berliner Zeitung, Tagesspiegel, rbb24:</strong> Diverse Berichte 2022&ndash;2026.</li>
+    </ul>
+
+    <p style="font-size:12px;color:var(--text2);margin-top:24px;">Quellenmanifest: <code>source_manifest.json</code> im Register-Ordner. Stand: März 2026.</p>
+  </div>
+</div>
 <div class="header">
   <div class="header-left">
     <div class="logo-mark">S</div>
     <div><h1>Eigentümer- & Investorenregister</h1><div class="subtitle">Zukunftsort Schöneweide &middot; Industriesalon 2026</div></div>
   </div>
-  <button class="back-btn" onclick="showMap()">&#8592; Übersicht</button>
+  <div style="display:flex;align-items:center;gap:4px;">
+    <button class="info-btn" onclick="document.getElementById('introPanel').classList.add('show')">ℹ Über den Standort</button>
+    <button class="src-btn" onclick="document.getElementById('srcPanel').classList.add('show')">📚 Quellen</button>
+    <button class="back-btn" onclick="showMap()">&#8592; Übersicht</button>
+  </div>
 </div>
 <div class="main">
   <div class="sidebar">

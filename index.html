@@ -126,10 +126,10 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 @media (min-width: 1400px) { .sidebar { width: 400px; } }
 
 /* Intro & Sources Panel */
-.info-btn { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3); color: var(--blue); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif; margin-left: 8px; }
-.info-btn:hover { background: rgba(59,130,246,0.2); }
-.src-btn { background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.3); color: var(--green); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif; margin-left: 8px; }
-.src-btn:hover { background: rgba(34,197,94,0.2); }
+.info-btn { background: rgba(59,130,246,0.18); border: 1px solid rgba(59,130,246,0.5); color: var(--blue); padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif; margin-left: 8px; white-space: nowrap; }
+.info-btn:hover { background: rgba(59,130,246,0.3); }
+.src-btn { background: rgba(34,197,94,0.18); border: 1px solid rgba(34,197,94,0.5); color: var(--green); padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif; margin-left: 8px; white-space: nowrap; }
+.src-btn:hover { background: rgba(34,197,94,0.3); }
 .overlay-panel { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 9999; display: none; justify-content: center; align-items: flex-start; padding: 40px 20px; overflow-y: auto; }
 .overlay-panel.show { display: flex; }
 .overlay-content { max-width: 800px; width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; position: relative; }
@@ -280,7 +280,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 <div class="main">
   <div class="sidebar">
     <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">Alle 47</button>
+      <button class="filter-btn active" data-filter="all">Alle 59</button>
       <button class="filter-btn" data-filter="aktiv">Aktiv</button>
       <button class="filter-btn" data-filter="entwicklung">Entwicklung</button>
       <button class="filter-btn" data-filter="geplant">Geplant</button>
@@ -303,7 +303,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 
           <!-- === ZONE B: OBERSCHÖNEWEIDE (NORD) === -->
           <rect x="15" y="15" width="595" height="340" rx="8" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.15)"/>
-          <text x="300" y="35" text-anchor="middle" fill="rgba(59,130,246,0.5)" font-size="10" font-weight="700" font-family="Inter" letter-spacing="3">OBERSCHÖNEWEIDE · WILHELMINENHOF</text>
+          <text x="300" y="35" text-anchor="middle" fill="rgba(59,130,246,0.5)" font-size="10" font-weight="700" font-family="Inter" letter-spacing="3">OBERSCHÖNEWEIDE · WILHELMINENHOFSTRASSE</text>
           <!-- Row 1: Große Eigentümer -->
           <g class="map-prop" data-id="17"><rect x="30" y="45" width="100" height="44" fill="#22C55E" opacity="0.85" rx="6"/><text x="80" y="63" text-anchor="middle" fill="white" font-size="9" font-weight="700" font-family="Inter">HTW Campus</text><text x="80" y="76" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="7" font-family="Inter">14.000 Stud.</text></g>
           <g class="map-prop" data-id="7"><rect x="140" y="45" width="90" height="44" fill="#22C55E" opacity="0.85" rx="6"/><text x="185" y="67" text-anchor="middle" fill="white" font-size="9" font-weight="700" font-family="Inter">Wilms/BDK</text></g>

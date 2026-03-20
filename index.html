@@ -261,6 +261,27 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 .ff-standort-sub { font-size: 11px; color: var(--text2); margin-top: 2px; }
 @media (max-width: 600px) { .ff-grid { grid-template-columns: 1fr; } }
 
+
+/* Map zone dimming */
+.map-zone { transition: opacity 0.4s ease; }
+.map-zone.dimmed { opacity: 0.15; pointer-events: none; }
+
+
+/* === GEO MAP STYLES === */
+.geo-map-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px; position: relative; overflow: hidden; }
+.geo-map-card::before { content:''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #10B981, #3B82F6, #F59E0B, #8B5CF6); }
+.geo-map-card h2 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 4px; padding-top: 8px; }
+.geo-map-card .map-sub { font-size: 13px; color: var(--text2); margin-bottom: 16px; }
+.geo-map-svg { width: 100%; }
+.geo-zone { transition: all 0.3s ease; }
+.geo-zone:hover .geo-zone-rect { stroke: currentColor; stroke-width: 2; opacity: 0.15; filter: brightness(1.2); }
+.geo-zone-osw:hover { color: #3B82F6; }
+.geo-zone-nalepa:hover { color: #10B981; }
+.geo-zone-nsw:hover { color: #F59E0B; }
+.geo-zone-wuhl:hover { color: #8B5CF6; }
+.geo-zone-pla:hover { color: #EC4899; }
+.geo-zone.active .geo-zone-rect { stroke-width: 2.5; stroke-opacity: 0.8; }
+
 /* Search Input */
 .search-wrap { padding: 10px 16px 6px; background: rgba(0,0,0,0.15); }
 .search-input { width: 100%; padding: 10px 14px 10px 36px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface2); color: var(--text); font-size: 13px; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; }
@@ -395,7 +416,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
     <p><strong>Industriesalon Schöneweide e.V.</strong><br>Reinbeckstraße 9&ndash;10, 12459 Berlin<br>
     <a href="https://www.industriesalon.de" target="_blank">industriesalon.de</a><br>
     Sprecher Standortgemeinschaft: Klaus Burmeister</p>
-    <p style="font-size:12px;color:var(--text2);margin-top:16px;">Stand: März 2026 &middot; v07</p>
+    <p style="font-size:12px;color:var(--text2);margin-top:16px;">Version Beta_01 (03-2026) &middot; v08</p>
   </div>
 </div>
 
@@ -490,12 +511,12 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 <div class="header">
   <div class="header-left">
     <div class="logo-mark">S</div>
-    <div><h1>Eigentümer- & Investorenregister</h1><div class="subtitle">Zukunftsort Schöneweide &middot; Industriesalon 2026</div></div>
+    <div><h1>Eigentümer- & Investorenregister</h1><div class="subtitle">Zukunftsort Schöneweide &middot; Beta_01 (03-2026)</div></div>
   </div>
   <div style="display:flex;align-items:center;gap:4px;">
     <button class="info-btn" onclick="document.getElementById('introPanel').classList.add('show')">ℹ Über den Standort</button>
     <button class="src-btn" onclick="document.getElementById('srcPanel').classList.add('show')">📚 Quellen</button>
-    <button class="v08-btn" onclick="document.getElementById('changelogPanel').classList.add('show')">v08</button>
+    <button class="v08-btn" onclick="document.getElementById('changelogPanel').classList.add('show')">Neu</button>
     <button class="stats-btn" onclick="document.getElementById('statsPanel').classList.add('show')">📊 Statistik</button>
     <button class="export-btn" onclick="toggleExportMenu(event)">⬇ Export</button>
     <div class="export-dropdown" id="exportDropdown">
@@ -508,7 +529,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 </div>
 <div class="main">
   <div class="sidebar">
-    <div class="search-wrap"><div class="search-wrap-inner"><span class="search-icon">🔍</span><input type="text" class="search-input" id="searchInput" placeholder="Suche: Name, Eigentümer, Branche, Adresse…"><button class="search-clear" id="searchClear" onclick="clearSearch()">&times;</button></div></div>
+    <div class="search-wrap"><div class="search-wrap-inner"><svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;left:28px;top:50%;transform:translateY(-50%);color:var(--text2);pointer-events:none;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" class="search-input" id="searchInput" placeholder="Suche: Name, Eigentümer, Branche, Adresse…"><button class="search-clear" id="searchClear" onclick="clearSearch()">&times;</button></div></div>
     <div class="filter-bar">
       <button class="filter-btn active" data-filter="all">Alle 68</button>
       <button class="filter-btn" data-filter="aktiv">Aktiv</button>
@@ -537,17 +558,105 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
   </div>
   <div class="content">
     <div class="map-view" id="mapView">
-      <div class="map-card">
+            <div class="map-card geo-map-card">
+        <h2>Übersichtskarte Schöneweide</h2>
+        <div class="map-sub">Klicke auf ein Gebiet zum Filtern der Liste</div>
+        <svg class="map-svg geo-map-svg" viewBox="0 0 920 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- === BACKGROUND === -->
+          <defs>
+            <filter id="geoMapShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15" flood-color="#000000"/>
+            </filter>
+          </defs>
+          
+          <!-- === SPREE RIVER === -->
+          <path d="M0,140 Q100,130 200,138 Q300,145 400,140 Q500,135 600,142 Q700,148 800,140 Q850,135 920,142" 
+                fill="none" stroke="#3B82F6" stroke-width="24" opacity="0.15" filter="url(#geoMapShadow)"/>
+          <path d="M0,140 Q100,130 200,138 Q300,145 400,140 Q500,135 600,142 Q700,148 800,140 Q850,135 920,142" 
+                fill="none" stroke="#3B82F6" stroke-width="2" opacity="0.6"/>
+          <text x="460" y="150" text-anchor="middle" fill="#3B82F6" font-size="11" font-weight="600" font-family="Inter" opacity="0.4" letter-spacing="2">SPREE</text>
+          
+          <!-- === S-BAHN LINE === -->
+          <path d="M50,140 Q200,140 460,140 Q720,140 870,140" fill="none" stroke="#22C55E" stroke-width="2" stroke-dasharray="8,4" opacity="0.4"/>
+          
+          <!-- === ZONES === -->
+          
+          <!-- OBERSCHÖNEWEIDE (North, Blue) -->
+          <g class="geo-zone geo-zone-osw" data-area="Oberschöneweide" onclick="setAreaFilter('Oberschöneweide')" style="cursor:pointer;">
+            <rect x="30" y="20" width="520" height="105" rx="8" fill="rgba(59,130,246,0.08)" stroke="rgba(59,130,246,0.25)" stroke-width="1.5" class="geo-zone-rect" style="transition: all 0.3s ease;"/>
+            <text x="290" y="42" text-anchor="middle" fill="#3B82F6" font-size="13" font-weight="700" font-family="Inter">OBERSCHÖNEWEIDE</text>
+            <text x="290" y="60" text-anchor="middle" fill="rgba(59,130,246,0.6)" font-size="11" font-family="Inter">Wilhelminenhofstraße</text>
+            <text x="290" y="105" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="12" font-weight="700" font-family="Inter">42</text>
+            <text x="290" y="120" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="10" font-family="Inter">Profile</text>
+          </g>
+          
+          <!-- NALEPASTRASSE (North-East, Green) -->
+          <g class="geo-zone geo-zone-nalepa" data-area="Nalepastraße" onclick="setAreaFilter('Nalepastraße')" style="cursor:pointer;">
+            <rect x="600" y="20" width="300" height="105" rx="8" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.25)" stroke-width="1.5" class="geo-zone-rect" style="transition: all 0.3s ease;"/>
+            <text x="750" y="42" text-anchor="middle" fill="#10B981" font-size="13" font-weight="700" font-family="Inter">NALEPASTRASSE</text>
+            <text x="750" y="60" text-anchor="middle" fill="rgba(16,185,129,0.6)" font-size="11" font-family="Inter">Ost / Nord-Ufer</text>
+            <text x="750" y="105" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="12" font-weight="700" font-family="Inter">3</text>
+            <text x="750" y="120" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="10" font-family="Inter">Profile</text>
+          </g>
+          
+          <!-- NIEDERSCHÖNEWEIDE (South-West, Amber) -->
+          <g class="geo-zone geo-zone-nsw" data-area="Niederschöneweide" onclick="setAreaFilter('Niederschöneweide')" style="cursor:pointer;">
+            <rect x="30" y="180" width="340" height="100" rx="8" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.25)" stroke-width="1.5" class="geo-zone-rect" style="transition: all 0.3s ease;"/>
+            <text x="200" y="202" text-anchor="middle" fill="#F59E0B" font-size="13" font-weight="700" font-family="Inter">NIEDERSCHÖNEWEIDE</text>
+            <text x="200" y="220" text-anchor="middle" fill="rgba(245,158,11,0.6)" font-size="11" font-family="Inter">Schnellerstraße</text>
+            <text x="200" y="255" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="12" font-weight="700" font-family="Inter">9</text>
+            <text x="200" y="270" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="10" font-family="Inter">Profile</text>
+          </g>
+          
+          <!-- WUHLHEIDE (South-East, Purple) -->
+          <g class="geo-zone geo-zone-wuhl" data-area="Wuhlheide" onclick="setAreaFilter('Wuhlheide')" style="cursor:pointer;">
+            <rect x="450" y="180" width="280" height="100" rx="8" fill="rgba(139,92,246,0.08)" stroke="rgba(139,92,246,0.25)" stroke-width="1.5" class="geo-zone-rect" style="transition: all 0.3s ease;"/>
+            <text x="590" y="202" text-anchor="middle" fill="#8B5CF6" font-size="13" font-weight="700" font-family="Inter">WUHLHEIDE</text>
+            <text x="590" y="220" text-anchor="middle" fill="rgba(139,92,246,0.6)" font-size="11" font-family="Inter">Forst / Park</text>
+            <text x="590" y="255" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="12" font-weight="700" font-family="Inter">2</text>
+            <text x="590" y="270" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="10" font-family="Inter">Profile</text>
+          </g>
+          
+          <!-- PLÄNTERWALD (South, Pink) -->
+          <g class="geo-zone geo-zone-pla" data-area="Plänterwald" onclick="setAreaFilter('Plänterwald')" style="cursor:pointer;">
+            <rect x="790" y="180" width="110" height="100" rx="8" fill="rgba(236,72,153,0.08)" stroke="rgba(236,72,153,0.25)" stroke-width="1.5" class="geo-zone-rect" style="transition: all 0.3s ease;"/>
+            <text x="845" y="218" text-anchor="middle" fill="#EC4899" font-size="12" font-weight="700" font-family="Inter">PLÄNTER-</text>
+            <text x="845" y="233" text-anchor="middle" fill="#EC4899" font-size="12" font-weight="700" font-family="Inter">WALD</text>
+            <text x="845" y="255" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="12" font-weight="700" font-family="Inter">1</text>
+            <text x="845" y="270" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-size="10" font-family="Inter">Profil</text>
+          </g>
+          
+          <!-- === S-BAHN STATIONS === -->
+          <!-- S Schöneweide (Central) -->
+          <circle cx="460" cy="140" r="5" fill="#22C55E" opacity="0.8"/>
+          <circle cx="460" cy="140" r="8" fill="none" stroke="#22C55E" stroke-width="1" opacity="0.4"/>
+          <text x="460" y="158" text-anchor="middle" fill="#22C55E" font-size="9" font-weight="600" font-family="Inter" opacity="0.6">S Schöneweide</text>
+          
+          <!-- S Oberspree (East) -->
+          <circle cx="750" cy="140" r="5" fill="#22C55E" opacity="0.8"/>
+          <circle cx="750" cy="140" r="8" fill="none" stroke="#22C55E" stroke-width="1" opacity="0.4"/>
+          <text x="750" y="158" text-anchor="middle" fill="#22C55E" font-size="9" font-weight="600" font-family="Inter" opacity="0.6">S Oberspree</text>
+          
+          <!-- === COMPASS ROSE === -->
+          <g transform="translate(50,260)" opacity="0.5">
+            <line x1="0" y1="5" x2="0" y2="18" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <polygon points="0,0 -3,8 0,5 3,8" fill="rgba(255,255,255,0.4)"/>
+            <text x="0" y="28" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="10" font-weight="600" font-family="Inter">N</text>
+          </g>
+        </svg>
+      </div>
+
+<div class="map-card">
         <h2>Standortkarte Zukunftsort Schöneweide</h2>
         <div class="map-sub">68 Standort-Profile &middot; 4 Teilgebiete &middot; Nord → Süd &middot; Interaktive Auswahl per Klick</div>
 <svg class="map-svg" viewBox="0 0 920 850" xmlns="http://www.w3.org/2000/svg">
-          <!-- === ZONE A: NALEPASTRASSE (NORD-OST) === -->
+          <g id="zone-nalepa" class="map-zone" data-area="Nalepastraße"><!-- === ZONE A: NALEPASTRASSE (NORD-OST) === -->
           <rect x="620" y="15" width="285" height="95" rx="8" fill="rgba(34,197,94,0.06)" stroke="rgba(34,197,94,0.15)"/>
           <text x="762" y="35" text-anchor="middle" fill="rgba(34,197,94,0.5)" font-size="10" font-weight="700" font-family="Inter" letter-spacing="3">NALEPASTRASSE</text>
           <g class="map-prop" data-id="3"><rect x="635" y="45" width="125" height="48" fill="#22C55E" opacity="0.85" rx="6"/><text x="697" y="66" text-anchor="middle" fill="white" font-size="10" font-weight="700" font-family="Inter">Funkhaus</text><text x="697" y="79" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8" font-family="Inter">Uwe Fabich</text></g>
           <g class="map-prop" data-id="1"><rect x="770" y="45" width="120" height="48" fill="#3B82F6" opacity="0.85" rx="6"/><text x="830" y="66" text-anchor="middle" fill="white" font-size="9" font-weight="700" font-family="Inter">Funkytown</text><text x="830" y="79" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8" font-family="Inter">Trockland</text></g>
 
-          <!-- === ZONE B: OBERSCHÖNEWEIDE (NORD) === -->
+          </g><g id="zone-osw" class="map-zone" data-area="Oberschöneweide"><!-- === ZONE B: OBERSCHÖNEWEIDE (NORD) === -->
           <rect x="15" y="15" width="595" height="340" rx="8" fill="rgba(59,130,246,0.06)" stroke="rgba(59,130,246,0.15)"/>
           <text x="300" y="35" text-anchor="middle" fill="rgba(59,130,246,0.5)" font-size="10" font-weight="700" font-family="Inter" letter-spacing="3">OBERSCHÖNEWEIDE · WILHELMINENHOFSTRASSE</text>
           <!-- Row 1: Große Eigentümer -->
@@ -599,12 +708,12 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
           <g class="map-prop" data-id="45"><rect x="220" y="340" width="85" height="32" fill="#059669" opacity="0.85" rx="5"/><text x="262" y="360" text-anchor="middle" fill="white" font-size="7" font-weight="700" font-family="Inter">KAOS 93</text></g>
           <g class="map-prop" data-id="46"><rect x="315" y="340" width="60" height="32" fill="#4B5563" opacity="0.85" rx="5"/><text x="345" y="360" text-anchor="middle" fill="white" font-size="7" font-weight="700" font-family="Inter">W91?</text></g>
 
-          <!-- === SPREE === -->
+          </g><!-- === SPREE === -->
           <path d="M0,385 Q200,365 400,375 Q600,385 750,370 Q850,360 920,365" fill="none" stroke="#3B82F6" stroke-width="28" opacity="0.12"/>
           <path d="M0,385 Q200,365 400,375 Q600,385 750,370 Q850,360 920,365" fill="none" stroke="#3B82F6" stroke-width="2.5" opacity="0.5"/>
           <text x="460" y="382" text-anchor="middle" fill="#3B82F6" font-size="13" font-weight="600" font-family="Inter" opacity="0.5">S  P  R  E  E</text>
 
-          <!-- === ZONE C: NIEDERSCHÖNEWEIDE (SÜD) === -->
+          <g id="zone-nsw" class="map-zone" data-area="Niederschöneweide"><!-- === ZONE C: NIEDERSCHÖNEWEIDE (SÜD) === -->
           <rect x="15" y="410" width="890" height="230" rx="8" fill="rgba(249,115,22,0.06)" stroke="rgba(249,115,22,0.15)"/>
           <text x="460" y="430" text-anchor="middle" fill="rgba(249,115,22,0.5)" font-size="10" font-weight="700" font-family="Inter" letter-spacing="3">NIEDERSCHÖNEWEIDE · SCHNELLERSTRASSE</text>
           <!-- Schnellerstraße -->
@@ -623,7 +732,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
           <g class="map-prop" data-id="31"><rect x="190" y="515" width="85" height="40" fill="#22C55E" opacity="0.85" rx="5"/><text x="232" y="538" text-anchor="middle" fill="white" font-size="9" font-weight="700" font-family="Inter">Novilla</text></g>
           <g class="map-prop" data-id="42"><rect x="285" y="515" width="115" height="40" fill="#22C55E" opacity="0.85" rx="5"/><text x="342" y="533" text-anchor="middle" fill="white" font-size="8" font-weight="700" font-family="Inter">Waldorfschule</text><text x="342" y="545" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="7" font-family="Inter">Bruno-Bürgel-Weg</text></g>
 
-          <!-- === ZONE D: WUHLHEIDE / KÖPENICK (SÜD-OST) === -->
+          </g><g id="zone-wuhlheide" class="map-zone" data-area="Wuhlheide"><!-- === ZONE D: WUHLHEIDE / KÖPENICK (SÜD-OST) === -->
           <rect x="15" y="660" width="890" height="90" rx="8" fill="rgba(168,85,247,0.06)" stroke="rgba(168,85,247,0.15)"/>
           <text x="460" y="680" text-anchor="middle" fill="rgba(168,85,247,0.5)" font-size="10" font-weight="700" font-family="Inter" letter-spacing="3">WUHLHEIDE / KÖPENICK (SÜD-OST)</text>
           <g class="map-prop" data-id="41"><rect x="30" y="693" width="160" height="44" fill="#22C55E" opacity="0.85" rx="6"/><text x="110" y="712" text-anchor="middle" fill="white" font-size="11" font-weight="700" font-family="Inter">Mellowpark</text><text x="110" y="726" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8" font-family="Inter">60.000 m² Actionsport</text></g>
@@ -650,7 +759,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
             <rect x="480" y="12" width="10" height="10" rx="3" fill="#78716C"/><text x="496" y="21" fill="rgba(255,255,255,0.4)" font-size="9">Unklar</text>
             <text x="0" y="42" fill="rgba(255,255,255,0.25)" font-size="8">Nord → Süd: Nalepastr. → Oberschöneweide → Spree → Niederschöneweide → Wuhlheide · 55 Profile</text>
           </g>
-        </svg>
+        </g></svg>
       </div>
       <div class="stats-row">
         <div class="stat-card"><div class="num">55</div><div class="label">Standort-Profile</div></div>
@@ -667,7 +776,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
         <div class="unknown-card"><div class="q-mark">?</div><div><div class="name">Schnellerstr. / Britzer Str. (NSW)</div><div class="desc">Heterogene Eigentümer. Gewerbliche Nutzung.</div></div></div>
         <div class="unknown-card"><div class="q-mark">?</div><div><div class="name">Hasselwerder Str. / Ufer (NSW)</div><div class="desc">Mischgebiet. Öffentlicher Spreeufer-Zugang offen.</div></div></div>
       </div>
-      <div class="map-footer">Eigentümer- & Investorenregister &middot; Stand: März 2026 &middot; Industriesalon Schöneweide e.V.</div>
+      <div class="map-footer">Eigentümer- & Investorenregister &middot; Version Beta_01 (03-2026) &middot; 68 Profile &middot; Industriesalon Schöneweide e.V.</div>
     </div>
     <div class="detail-view" id="detailView"></div>
   </div>
@@ -951,6 +1060,34 @@ document.addEventListener('DOMContentLoaded', function(){
   buildStats();
 });
 
+
+function setAreaFilter(area) {
+  areaFilter = area;
+  // Update area filter buttons
+  document.querySelectorAll('.area-filter-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if(btn.dataset.area === area) {
+      btn.classList.add('active');
+    }
+  });
+  // Update geo map zones
+  document.querySelectorAll('.geo-zone').forEach(zone => {
+    zone.classList.remove('active');
+    if(zone.dataset.area === area) {
+      zone.classList.add('active');
+    }
+  });
+  // Dim schematic map zones
+  document.querySelectorAll('.map-zone').forEach(zone => {
+    if(zone.dataset.area === area) {
+      zone.classList.remove('dimmed');
+    } else {
+      zone.classList.add('dimmed');
+    }
+  });
+  renderList();
+}
+
 function renderList(){const l=document.getElementById("propList");l.innerHTML="";let filtered=P.filter((p,i)=>{if(af==="mieter"&&p.role!=="M")return false;if(af!=="all"&&af!=="mieter"&&p.status!==af)return false;if(areaFilter!=="all"&&p.area!==areaFilter)return false;const searchTerm=(document.getElementById("searchInput").value||"").toLowerCase();if(searchTerm){const match=p.name.toLowerCase().includes(searchTerm)||p.owner.toLowerCase().includes(searchTerm)||(p.branche||"").toLowerCase().includes(searchTerm)||(p.address||"").toLowerCase().includes(searchTerm);if(!match)return false;}return true;});filtered=sortEntries(filtered,sortMode);filtered.forEach((p)=>{const i=P.indexOf(p);const d=document.createElement("div");d.className="prop-item";d.dataset.index=i;d.innerHTML=`<div class="prop-icon" style="background:${p.color}">${p.icon}</div><div class="prop-info"><div class="name">${p.name}</div><div class="owner">${p.owner}</div><div class="meta"><span class="badge ${SC[p.status]}">${SL[p.status]}</span> <span style="font-size:10px;color:var(--text2);margin-left:6px">${RL[p.role]||p.role}</span></div></div>`;d.onclick=()=>showDetail(i);l.appendChild(d);});}
 function showDetail(i){const p=P[i];document.querySelectorAll(".prop-item").forEach(el=>el.classList.toggle("selected",parseInt(el.dataset.index)===i));document.getElementById("mapView").style.display="none";const dv=document.getElementById("detailView");dv.style.display="block";document.querySelector(".back-btn").style.display="block";dv.innerHTML=`<div class="detail-hero"><div class="hero-visual" style="background:${p.color}"><div class="hero-icon">${p.icon}</div><div class="hero-overlay"><h2>${p.name}</h2><div class="hero-owner">${p.owner}</div></div></div><div class="hero-body"><span class="badge ${SC[p.status]}" style="font-size:12px;padding:5px 16px;">${SL[p.status]}</span><span style="display:inline-block;margin-left:10px;padding:5px 14px;border-radius:6px;font-size:11px;font-weight:600;background:rgba(249,115,22,0.1);color:var(--accent);border:1px solid rgba(249,115,22,0.2);">${RL[p.role]||p.role}</span><div class="photo-placeholder" style="margin-top:16px"><div class="cam">&#128247;</div><div>Foto: ${p.name}</div><div class="hint">Bild einfügen (Industriesalon-Archiv)</div></div><div class="info-grid"><div class="info-cell"><div class="cell-label">Adresse</div><div class="cell-value">${p.address}</div></div><div class="info-cell"><div class="cell-label">Gebiet</div><div class="cell-value">${p.area}</div></div><div class="info-cell"><div class="cell-label">Fläche</div><div class="cell-value">${p.size}</div></div><div class="info-cell"><div class="cell-label">Investition</div><div class="cell-value">${p.investment}</div></div><div class="info-cell full" style="background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15)"><div class="cell-label" style="color:var(--accent)">Branche</div><div class="cell-value" style="color:var(--accent);font-weight:600">${p.branche}</div></div><div class="info-cell" style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15)"><div class="cell-label" style="color:var(--green)">Kauf- / Investitionssumme</div><div class="cell-value" style="color:var(--green);font-weight:600">${p.kaufpreis}</div></div><div class="info-cell"><div class="cell-label">Arbeitsplätze / Nutzung</div><div class="cell-value">${p.jobs}</div></div></div></div></div><div class="section-card" style="border-left:3px solid var(--amber)"><h3><span class="icon">&#127963;</span> Was war früher hier?</h3><div class="story-text">${p.vornutzung}</div></div><div class="section-card"><h3><span class="icon">&#128214;</span> Hintergrundgeschichte</h3><div class="story-text">${p.history}</div></div><div class="section-card"><h3><span class="icon">&#128200;</span> Aktueller Stand</h3><div class="story-text">${p.current}</div></div><div class="section-card"><h3><span class="icon">&#10067;</span> Offene Fragen</h3><ul class="questions-list">${p.questions.map(q=>"<li>"+q+"</li>").join("")}</ul><div class="sources-line">Quellen: ${p.sources}</div>${p.website ? `<a href="${p.website}" target="_blank" style="display:inline-block;margin-top:10px;padding:8px 18px;border-radius:8px;background:rgba(59,130,246,0.1);color:var(--blue);border:1px solid rgba(59,130,246,0.2);font-size:13px;font-weight:600;text-decoration:none;transition:all 0.2s;">🌐 ${p.website}</a>` : ""}</div>`;dv.scrollTop=0;}
 function showMap(){document.getElementById("mapView").style.display="block";document.getElementById("detailView").style.display="none";document.querySelector(".back-btn").style.display="none";document.querySelectorAll(".prop-item").forEach(el=>el.classList.remove("selected"));}
@@ -1018,5 +1155,28 @@ function filterDirectory(){
     l.style.display=hasVisible?"block":"none";
   });
 }
+
+
+// Map zone dimming on area filter
+function updateMapZones(){
+  const zones=document.querySelectorAll('.map-zone');
+  const areaMap={'Oberschöneweide':'zone-osw','Niederschöneweide':'zone-nsw','Nalepastraße':'zone-nalepa','Wuhlheide':'zone-wuhlheide','Plänterwald':'zone-wuhlheide'};
+  if(!areaFilter||areaFilter==='all'){
+    zones.forEach(z=>z.classList.remove('dimmed'));
+  } else {
+    const activeId=areaMap[areaFilter];
+    zones.forEach(z=>{
+      z.classList.toggle('dimmed',z.id!==activeId);
+    });
+  }
+}
+// Hook into area filter buttons
+document.querySelectorAll('.area-filter-btn').forEach(btn=>{
+  const origClick=btn.onclick;
+  btn.onclick=function(e){
+    if(origClick)origClick.call(this,e);
+    setTimeout(updateMapZones,50);
+  };
+});
 
 </script></body></html>

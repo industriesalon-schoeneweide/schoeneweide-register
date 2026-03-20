@@ -2,23 +2,24 @@
 
 Interaktives Register mit **68 Standort-Profilen** für den Touchscreen im Industriesalon Schöneweide.
 
-**Live:** [https://industriesalon-schoeneweide.github.io/schoeneweide-register/](https://industriesalon-schoeneweide.github.io/schoeneweide-register/)
+**Version:** Beta_01 (03-2026) · **Live:** [industriesalon-schoeneweide.github.io/schoeneweide-register/](https://industriesalon-schoeneweide.github.io/schoeneweide-register/)
 
 ## Inhalt
 
-`index.html` — Komplettes Register als Single-File-App (keine Abhängigkeiten, offline-fähig, ~176 KB).
+`index.html` — Komplettes Register als Single-File-App (keine Abhängigkeiten, offline-fähig, ~180 KB).
 
 ## Features
 
 | Feature | Beschreibung |
 |---------|-------------|
 | 🔍 **Volltextsuche** | Durchsucht alle Felder: Name, Eigentümer, Branche, Adresse, aktueller Stand |
-| 🗺️ **SVG-Karte** | Interaktive Standortkarte Nord → Süd mit klickbaren Einträgen |
+| 🧭 **Navigationskarte** | Geo-orientierte Übersichtskarte mit Spree, S-Bahn-Stationen und 5 klickbaren Gebietszonen |
+| 🗺️ **Schematische Karte** | Detaillierte Standortkarte Nord → Süd mit allen 68 Einträgen, Zonen-Dimming bei Filterung |
 | 🏷️ **Status-Filter** | Aktiv / Entwicklung / Geplant / Unklar / Mieter |
 | 🌍 **Gebietsfilter** | Oberschöneweide / Niederschöneweide / Nalepastraße / Wuhlheide / Plänterwald |
 | ↕️ **Sortierung** | Nach ID (#), Name (A–Z), Gebiet, Status |
 | 📖 **Verzeichnis A–Z** | Alphabetische Liste aller 68 Akteure mit eigener Suchfunktion |
-| 🆕 **Änderungsprotokoll** | „v08"-Button zeigt alle neuen Einträge der aktuellen Version |
+| 🆕 **Änderungsprotokoll** | „Neu"-Button zeigt alle neuen Einträge der aktuellen Version |
 | ⬇️ **Datenexport** | CSV- und JSON-Export des gesamten Registers |
 | 📊 **Statistik-Dashboard** | Verteilung nach Rollen, Status, Gebieten und Top-Branchen |
 | ℹ️ **Über den Standort** | Einleitung mit Geschichte der Elektropolis und Facts & Figures |
@@ -61,7 +62,7 @@ Kennzahlen: 130 ha Zukunftsort · 63 ha Rahmenplangebiet · ~1,5 Mrd. EUR gesch�
 
 ## Versionshistorie
 
-- **v08** (2026-03-20): **UKSW-Mitglieder-Integration + 5 neue Features.** 68 Einträge (+9 neue: IRIS GmbH, TGS Schöneweide, BTB GmbH, 1. FC Union Berlin, FEZ Berlin, ADMOS Immobilien, Stephanus gGmbH, ibis Styles Hotel, ksg Architekten). Neue Features: Volltextsuche, Gebietsfilter, Sortierung (4 Modi), Änderungsprotokoll, Datenexport (CSV/JSON), Statistik-Dashboard, Verzeichnis A–Z. Quellen: UKSW-Mitgliederverzeichnis, WF-Geschichte (Schimko 2026).
+- **Beta_01 / v08** (2026-03-20): **UKSW-Mitglieder-Integration + 12 neue Features.** 68 Einträge (+9 neue: IRIS GmbH, TGS Schöneweide, BTB GmbH, 1. FC Union Berlin, FEZ Berlin, ADMOS Immobilien, Stephanus gGmbH, ibis Styles Hotel, ksg Architekten). Neue Features: Volltextsuche (SVG-Icon), Geo-Navigationskarte (Spree, S-Bahn, 5 klickbare Zonen), Gebietsfilter mit Karten-Dimming, Sortierung (4 Modi), Verzeichnis A–Z, Änderungsprotokoll („Neu"-Button), Datenexport (CSV/JSON), Statistik-Dashboard, Versions-Tag „Beta_01 (03-2026)". Quellen: UKSW-Mitgliederverzeichnis, WF-Geschichte (Schimko 2026).
 - **v07** (2026-03-13): **Vollständige Workspace-Integration + Facts & Figures.** 59 Einträge (+4 neue: Innovationspark Wuhlheide, TGS Spreeknie, Electropolis Berlin/Industriemuseum-Projekt, botspot GmbH). 25 bestehende Einträge aktualisiert aus 60+ Workspace-Dokumenten. Neue Features: „Über den Standort"-Panel mit Einleitung und Facts & Figures nach Teilgebiet. „Quellen"-Panel mit vollständigem Quellenverzeichnis. Quellenmanifest (source_manifest.json) als Prozesssicherung eingeführt.
 - **v06.1** (2026-03-13): **WISTA Regionalmanagement 2011-17 Integration.** 16 Einträge mit RM-Daten angereichert.
 - **v06** (2026-03-13): **LOKATION:S Rahmenplan Vollintegration.** 55 Einträge (+4 neue: Handwerkerhof, ITZ 4.0, IBA 2034, Standortgemeinschaft).
@@ -102,12 +103,14 @@ Kennzahlen: 130 ha Zukunftsort · 63 ha Rahmenplangebiet · ~1,5 Mrd. EUR gesch�
 
 ## Technisch
 
-- **Single-File-App**: Alles in einer `index.html` (HTML + CSS + JS + Daten)
+- **Single-File-App**: Alles in einer `index.html` (HTML + CSS + JS + Daten, ~180 KB)
 - **Keine Abhängigkeiten**: Kein Build-Prozess, keine externen Libraries, kein Framework
 - **Offline-fähig**: Funktioniert ohne Internetverbindung (Fonts als Fallback)
 - **GitHub Pages**: Automatisches Deployment bei Push auf `main`
 - **Datenstruktur**: JavaScript-Array `const P=[...]` mit 18 Feldern pro Eintrag
+- **Zwei Karten**: Geo-Navigationskarte (Überblick) + schematische Detailkarte (alle Einträge)
+- **1.180+ Zeilen** Code (HTML + CSS + JS), 68 Datensätze, 15 Features
 
 ## Herausgeber
 
-Industriesalon Schöneweide e.V. · Stand März 2026
+Industriesalon Schöneweide e.V. · Version Beta_01 (03-2026)

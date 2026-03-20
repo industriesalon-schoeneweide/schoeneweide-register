@@ -6,13 +6,25 @@ Interaktives Register mit **68 Standort-Profilen** für den Touchscreen im Indus
 
 ## Inhalt
 
-- `index.html` — Komplettes Register (Single-File, keine Abhängigkeiten)
-- Interaktive SVG-Karte (Nord → Süd) mit 68 Standorten in 5 Teilgebieten
-- Filter: Aktiv / Entwicklung / Geplant / Unklar / Mieter
-- Detailansicht mit Branche, Kaufpreis, Vornutzung, Website
-- **„Über den Standort"** — Einleitung mit Geschichte und Facts & Figures nach Teilgebiet
-- **„Quellen"** — Quellenverzeichnis mit allen 60+ Dokumenten
-- Vollständige Integration von 60+ Quelldokumenten
+`index.html` — Komplettes Register als Single-File-App (keine Abhängigkeiten, offline-fähig, ~176 KB).
+
+## Features
+
+| Feature | Beschreibung |
+|---------|-------------|
+| 🔍 **Volltextsuche** | Durchsucht alle Felder: Name, Eigentümer, Branche, Adresse, aktueller Stand |
+| 🗺️ **SVG-Karte** | Interaktive Standortkarte Nord → Süd mit klickbaren Einträgen |
+| 🏷️ **Status-Filter** | Aktiv / Entwicklung / Geplant / Unklar / Mieter |
+| 🌍 **Gebietsfilter** | Oberschöneweide / Niederschöneweide / Nalepastraße / Wuhlheide / Plänterwald |
+| ↕️ **Sortierung** | Nach ID (#), Name (A–Z), Gebiet, Status |
+| 📖 **Verzeichnis A–Z** | Alphabetische Liste aller 68 Akteure mit eigener Suchfunktion |
+| 🆕 **Änderungsprotokoll** | „v08"-Button zeigt alle neuen Einträge der aktuellen Version |
+| ⬇️ **Datenexport** | CSV- und JSON-Export des gesamten Registers |
+| 📊 **Statistik-Dashboard** | Verteilung nach Rollen, Status, Gebieten und Top-Branchen |
+| ℹ️ **Über den Standort** | Einleitung mit Geschichte der Elektropolis und Facts & Figures |
+| 📚 **Quellenverzeichnis** | Vollständiges Verzeichnis aller 60+ Quelldokumente |
+| ❓ **Ungeklärte Areale** | 6 Standorte mit unbekannten Eigentümern |
+| 📱 **Touchscreen-optimiert** | Dark Theme, Inter + Playfair Display, offline-fähig |
 
 ## Facts & Figures (nach Teilgebiet)
 
@@ -49,7 +61,7 @@ Kennzahlen: 130 ha Zukunftsort · 63 ha Rahmenplangebiet · ~1,5 Mrd. EUR gesch�
 
 ## Versionshistorie
 
-- **v08** (2026-03-20): **UKSW-Mitglieder-Integration + WF-Ausgründungen.** 68 Einträge (+9 neue). Neue Einträge: IRIS GmbH (#60, WF-Ausgründung, IRMA-Fahrgastzählung), TGS Schöneweide (#61, HTW-Gründerzentrum), BTB GmbH (#62, Fernwärme/Geothermie/GeoSpeicher), 1. FC Union Berlin (#63, Bundesligist, Wurzeln in OSW), FEZ Berlin (#64, Europas größtes Kinder-/Jugendzentrum), ADMOS Immobilien AG (#65), Stephanus gGmbH (#66, Sozialwirtschaft), ibis Styles Hotel (#67, Hotellerie), ksg Architekten (#68). Quellen: UKSW-Mitgliederverzeichnis, WF-Geschichte (Schimko 2026).
+- **v08** (2026-03-20): **UKSW-Mitglieder-Integration + 5 neue Features.** 68 Einträge (+9 neue: IRIS GmbH, TGS Schöneweide, BTB GmbH, 1. FC Union Berlin, FEZ Berlin, ADMOS Immobilien, Stephanus gGmbH, ibis Styles Hotel, ksg Architekten). Neue Features: Volltextsuche, Gebietsfilter, Sortierung (4 Modi), Änderungsprotokoll, Datenexport (CSV/JSON), Statistik-Dashboard, Verzeichnis A–Z. Quellen: UKSW-Mitgliederverzeichnis, WF-Geschichte (Schimko 2026).
 - **v07** (2026-03-13): **Vollständige Workspace-Integration + Facts & Figures.** 59 Einträge (+4 neue: Innovationspark Wuhlheide, TGS Spreeknie, Electropolis Berlin/Industriemuseum-Projekt, botspot GmbH). 25 bestehende Einträge aktualisiert aus 60+ Workspace-Dokumenten. Neue Features: „Über den Standort"-Panel mit Einleitung und Facts & Figures nach Teilgebiet. „Quellen"-Panel mit vollständigem Quellenverzeichnis. Quellenmanifest (source_manifest.json) als Prozesssicherung eingeführt.
 - **v06.1** (2026-03-13): **WISTA Regionalmanagement 2011-17 Integration.** 16 Einträge mit RM-Daten angereichert.
 - **v06** (2026-03-13): **LOKATION:S Rahmenplan Vollintegration.** 55 Einträge (+4 neue: Handwerkerhof, ITZ 4.0, IBA 2034, Standortgemeinschaft).
@@ -87,6 +99,14 @@ Kennzahlen: 130 ha Zukunftsort · 63 ha Rahmenplangebiet · ~1,5 Mrd. EUR gesch�
 - Berliner Schriften zur Industriekultur, Bd. 2
 - Grün Berlin GmbH – Spreepark Projektdokumentation 2024–2027
 - entwicklungsstadt.de | Berliner Morgenpost | Berliner Zeitung | Tagesspiegel | rbb24
+
+## Technisch
+
+- **Single-File-App**: Alles in einer `index.html` (HTML + CSS + JS + Daten)
+- **Keine Abhängigkeiten**: Kein Build-Prozess, keine externen Libraries, kein Framework
+- **Offline-fähig**: Funktioniert ohne Internetverbindung (Fonts als Fallback)
+- **GitHub Pages**: Automatisches Deployment bei Push auf `main`
+- **Datenstruktur**: JavaScript-Array `const P=[...]` mit 18 Feldern pro Eintrag
 
 ## Herausgeber
 

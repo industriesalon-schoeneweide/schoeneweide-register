@@ -1,6 +1,6 @@
 # Eigentümer- & Investorenregister – Zukunftsort Schöneweide
 
-Interaktives Register mit **68 Standort-Profilen** für den Touchscreen im Industriesalon Schöneweide.
+Interaktives Register mit **69 Standort-Profilen** für den Touchscreen im Industriesalon Schöneweide.
 
 **Version:** Beta_01 (03-2026) · **Live:** [industriesalon-schoeneweide.github.io/schoeneweide-register/](https://industriesalon-schoeneweide.github.io/schoeneweide-register/)
 
@@ -14,11 +14,11 @@ Interaktives Register mit **68 Standort-Profilen** für den Touchscreen im Indus
 |---------|-------------|
 | 🔍 **Volltextsuche** | Durchsucht alle Felder: Name, Eigentümer, Branche, Adresse, aktueller Stand |
 | 🧭 **Navigationskarte** | Geo-orientierte Übersichtskarte mit Spree, S-Bahn-Stationen und 5 klickbaren Gebietszonen |
-| 🗺️ **Schematische Karte** | Detaillierte Standortkarte Nord → Süd mit allen 68 Einträgen, Zonen-Dimming bei Filterung |
+| 🗺️ **Schematische Karte** | Detaillierte Standortkarte Nord → Süd mit allen 69 Einträgen, Zonen-Dimming bei Filterung |
 | 🏷️ **Status-Filter** | Aktiv / Entwicklung / Geplant / Unklar / Mieter |
 | 🌍 **Gebietsfilter** | Oberschöneweide / Niederschöneweide / Nalepastraße / Wuhlheide / Plänterwald |
 | ↕️ **Sortierung** | Nach ID (#), Name (A–Z), Gebiet, Status |
-| 📖 **Verzeichnis A–Z** | Alphabetische Liste aller 68 Akteure mit eigener Suchfunktion |
+| 📖 **Verzeichnis A–Z** | Alphabetische Liste aller 69 Akteure mit eigener Suchfunktion |
 | 🆕 **Änderungsprotokoll** | „Neu"-Button zeigt alle neuen Einträge der aktuellen Version |
 | ⬇️ **Datenexport** | CSV- und JSON-Export des gesamten Registers |
 | 📊 **Statistik-Dashboard** | Verteilung nach Rollen, Status, Gebieten und Top-Branchen |
@@ -31,11 +31,11 @@ Interaktives Register mit **68 Standort-Profilen** für den Touchscreen im Indus
 
 | Teilgebiet | Profile | Eigentümer | Mieter | Projektentwickler | Aktiv | Entwicklung |
 |------------|---------|-----------|--------|-------------------|-------|-------------|
-| Oberschöneweide | 49 | 23 | 16 | 7 (+3 E+P) | 34 | 7 |
+| Oberschöneweide | 50 | 23 | 17 | 7 (+3 E+P) | 35 | 7 |
 | Niederschöneweide | 9 | 4 | 4 | 1 | 6 | 2 |
 | Nalepastraße | 3 | 2 | — | — (+1 E+P) | 1 | 1 |
 | Weitere (Wuhlheide, Plänterwald etc.) | 7 | 3 | 3 | — (+1 E+P) | 4 | 1 |
-| **Gesamt** | **68** | **32** | **23** | **8 (+5 E+P)** | **45** | **11** |
+| **Gesamt** | **69** | **32** | **24** | **8 (+5 E+P)** | **46** | **11** |
 
 Kennzahlen: 130 ha Zukunftsort · 63 ha Rahmenplangebiet · ~1,5 Mrd. EUR geschätztes Investitionsvolumen · 14.000+ HTW-Studierende
 
@@ -62,7 +62,7 @@ Kennzahlen: 130 ha Zukunftsort · 63 ha Rahmenplangebiet · ~1,5 Mrd. EUR gesch�
 
 ## Versionshistorie
 
-- **Beta_01 / v08** (2026-03-20): **UKSW-Mitglieder-Integration + 12 neue Features.** 68 Einträge (+9 neue: IRIS GmbH, TGS Schöneweide, BTB GmbH, 1. FC Union Berlin, FEZ Berlin, ADMOS Immobilien, Stephanus gGmbH, ibis Styles Hotel, ksg Architekten). Neue Features: Volltextsuche (SVG-Icon), Geo-Navigationskarte (Spree, S-Bahn, 5 klickbare Zonen), Gebietsfilter mit Karten-Dimming, Sortierung (4 Modi), Verzeichnis A–Z, Änderungsprotokoll („Neu"-Button), Datenexport (CSV/JSON), Statistik-Dashboard, Versions-Tag „Beta_01 (03-2026)". Quellen: UKSW-Mitgliederverzeichnis, WF-Geschichte (Schimko 2026).
+- **Beta_01 / v08** (2026-03-22): **UKSW-Mitglieder-Integration + 12 neue Features + Atelier-Korrekturen.** 69 Einträge (+10 neue: IRIS GmbH, TGS Schöneweide, BTB GmbH, 1. FC Union Berlin, FEZ Berlin, ADMOS Immobilien, Stephanus gGmbH, ibis Styles Hotel, ksg Architekten, Ateliergemeinschaft Geb. 59/60). 5 Einträge korrigiert: #16 Treptow-Ateliers (nicht mehr auf W-Str. 83-85, Teilumzug Wilms-Gebäude), #31 XTRO (Blunck, Geb. 83), #50 Atelierhaus 79 (GSE=Vermieter, Sven Hermann), #41 Atelierhaus 82 (unbestätigt), #06 Urban Banks (3 Ateliergemeinschaften). Quellen: UKSW-Mitgliederverzeichnis, WF-Geschichte (Schimko 2026), Albert Markert (Vor-Ort-Wissen März 2026).
 - **v07** (2026-03-13): **Vollständige Workspace-Integration + Facts & Figures.** 59 Einträge (+4 neue: Innovationspark Wuhlheide, TGS Spreeknie, Electropolis Berlin/Industriemuseum-Projekt, botspot GmbH). 25 bestehende Einträge aktualisiert aus 60+ Workspace-Dokumenten. Neue Features: „Über den Standort"-Panel mit Einleitung und Facts & Figures nach Teilgebiet. „Quellen"-Panel mit vollständigem Quellenverzeichnis. Quellenmanifest (source_manifest.json) als Prozesssicherung eingeführt.
 - **v06.1** (2026-03-13): **WISTA Regionalmanagement 2011-17 Integration.** 16 Einträge mit RM-Daten angereichert.
 - **v06** (2026-03-13): **LOKATION:S Rahmenplan Vollintegration.** 55 Einträge (+4 neue: Handwerkerhof, ITZ 4.0, IBA 2034, Standortgemeinschaft).
@@ -85,6 +85,7 @@ Kennzahlen: 130 ha Zukunftsort · 63 ha Rahmenplangebiet · ~1,5 Mrd. EUR gesch�
 | 66 | Stephanus gGmbH | Stephanus-Stiftung | Oberschöneweide | Sozialwirtschaft, Inklusion |
 | 67 | ibis Styles Hotel | Accor Hotels | Oberschöneweide | Hotellerie |
 | 68 | ksg Architekten | ksg Architekten | Oberschöneweide | Architektur, Stadtplanung |
+| 69 | Ateliergemeinschaft Geb. 59/60 | GSE gGmbH (Mieter) / XIOR (vermutet) | Oberschöneweide | Kunst, Ateliers |
 
 ## Literatur & Quellen
 
@@ -109,7 +110,7 @@ Kennzahlen: 130 ha Zukunftsort · 63 ha Rahmenplangebiet · ~1,5 Mrd. EUR gesch�
 - **GitHub Pages**: Automatisches Deployment bei Push auf `main`
 - **Datenstruktur**: JavaScript-Array `const P=[...]` mit 18 Feldern pro Eintrag
 - **Zwei Karten**: Geo-Navigationskarte (Überblick) + schematische Detailkarte (alle Einträge)
-- **1.180+ Zeilen** Code (HTML + CSS + JS), 68 Datensätze, 15 Features
+- **1.180+ Zeilen** Code (HTML + CSS + JS), 69 Datensätze, 15 Features
 
 ## Herausgeber
 

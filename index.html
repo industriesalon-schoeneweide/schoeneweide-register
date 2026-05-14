@@ -252,13 +252,19 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 .help-btn:hover { background: rgba(168,85,247,0.28); }
 
 /* WELCOME OVERLAY (Startseite beim ersten Besuch) */
-.welcome-overlay { position: fixed; inset: 0; background: rgba(15,17,23,0.94); backdrop-filter: blur(8px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+.welcome-overlay { position: fixed; inset: 0; background: rgba(15,17,23,0.985); backdrop-filter: blur(12px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
 .welcome-overlay.show { display: flex; }
-.welcome-card { max-width: 760px; width: 100%; background: linear-gradient(135deg, #1A1D27 0%, #232733 100%); border: 1px solid rgba(249,115,22,0.3); border-radius: 20px; padding: 40px 48px; box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 60px rgba(249,115,22,0.08); position: relative; }
-.welcome-card .wc-mark { display: flex; align-items: center; gap: 18px; margin-bottom: 24px; flex-wrap: wrap; }
-.welcome-card .wc-mark .wc-logo-img { height: 64px; width: auto; max-width: 220px; background: #fff; padding: 8px 14px; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.25); }
-.welcome-card .wc-mark .wc-tag { font-size: 11px; letter-spacing: 1.5px; color: var(--text2); text-transform: uppercase; font-weight: 600; }
-@media (max-width: 720px) { .welcome-card .wc-mark .wc-logo-img { height: 48px; } }
+.welcome-card { max-width: 820px; width: 100%; background: linear-gradient(135deg, #1A1D27 0%, #232733 100%); border: 1px solid rgba(249,115,22,0.3); border-radius: 20px; padding: 40px 48px; box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 60px rgba(249,115,22,0.08); position: relative; }
+.welcome-card .wc-mark { display: flex; align-items: center; gap: 22px; margin-bottom: 28px; flex-wrap: wrap; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+.welcome-card .wc-mark > a { display: inline-flex; line-height: 0; flex-shrink: 0; }
+.welcome-card .wc-mark .wc-logo-img { height: 96px; width: auto; max-width: 280px; background: #fff; padding: 12px 20px; border-radius: 14px; box-shadow: 0 4px 18px rgba(0,0,0,0.35); display: block; }
+.welcome-card .wc-mark .wc-mark-text { flex: 1; min-width: 200px; }
+.welcome-card .wc-mark .wc-tag { font-size: 12px; letter-spacing: 1.5px; color: var(--accent); text-transform: uppercase; font-weight: 700; }
+.welcome-card .wc-mark .wc-subtag { font-size: 14px; color: var(--text); margin-top: 4px; font-weight: 600; }
+@media (max-width: 720px) {
+  .welcome-card { padding: 28px 24px; }
+  .welcome-card .wc-mark .wc-logo-img { height: 64px; padding: 8px 14px; }
+}
 .welcome-card h1 { font-family: 'Playfair Display', serif; font-size: 32px; line-height: 1.2; margin: 0 0 10px; color: var(--text); }
 .welcome-card .wc-lead { font-size: 16px; line-height: 1.55; color: var(--text2); margin: 0 0 28px; }
 .welcome-card .wc-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0 32px; }
@@ -395,9 +401,10 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
       <a href="https://www.industriesalon.de" target="_blank" rel="noopener" title="Industriesalon Schöneweide e.V.">
         <img class="wc-logo-img" src="https://www.industriesalon.de/wp-content/uploads/2026/02/Logo_gross-1024x499.png" alt="Industriesalon Schöneweide" loading="eager" onerror="this.style.display='none'">
       </a>
-      <div>
+      <div class="wc-mark-text">
         <div class="wc-tag">Industriesalon Schöneweide e.V. · TransLab</div>
-        <div style="font-size:13px;color:var(--text2);margin-top:2px;">Eigentümer- &amp; Investorenregister · Beta_03 (05-2026)</div>
+        <div class="wc-subtag">Eigentümer- &amp; Investorenregister</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:4px;">Beta_03 (05-2026) · Zukunftsort Schöneweide</div>
       </div>
     </div>
 

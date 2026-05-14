@@ -451,7 +451,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
     <p><strong>Industriesalon Schöneweide e.V.</strong><br>Reinbeckstraße 9&ndash;10, 12459 Berlin<br>
     <a href="https://www.industriesalon.de" target="_blank">industriesalon.de</a><br>
     Sprecher Standortgemeinschaft: Klaus Burmeister</p>
-    <p style="font-size:12px;color:var(--text2);margin-top:16px;">Version Beta_02 (05-2026) &middot; v09 — Empira-Korrektur Rathenau-Hallen · Live-Karte (OSM) · Aktualitäts-Ampel · Korrektur-Knopf</p>
+    <p style="font-size:12px;color:var(--text2);margin-top:16px;">Version Beta_02 (05-2026) &middot; v10 — Empira-Korrektur · Live-Karte (OSM, Voyager) · Aktualitäts-Ampel · Korrektur-Knopf · präzise Marker (Funkhaus, Spreepark, …)</p>
   </div>
 </div>
 
@@ -822,17 +822,36 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
   </div>
 </div>
 
-<!-- CHANGELOG PANEL (v08) -->
+<!-- CHANGELOG PANEL (Beta_02 / v10) -->
 <div class="overlay-panel" id="changelogPanel" onclick="if(event.target===this)this.classList.remove('show')">
   <div class="overlay-content">
     <button class="overlay-close" onclick="document.getElementById('changelogPanel').classList.remove('show')">&times;</button>
-    <h2>Neu in Version 08</h2>
-    <p style="color: var(--text2); margin-bottom: 20px;">März 2026 · 9 neue Einträge</p>
-    
-    <h3 style="margin-top: 24px;">9 neue Einträge im Register</h3>
-    <p style="font-size: 12px; color: var(--text2); margin-bottom: 16px;">Die neuen Einträge dokumentieren zusätzliche Projektentwickler, kulturelle Institutionen und Gewerbebetriebe im Zukunftsort.</p>
-    
-    <div id="changelogList" style="max-height: 600px; overflow-y: auto;"></div>
+    <h2>Neu in Beta_02 (v10)</h2>
+    <p style="color: var(--text2); margin-bottom: 20px;">Mai 2026 · Inhalts-Korrekturen + Live-Karte + Aktualitäts-Workflow</p>
+
+    <h3 style="margin-top: 16px;">Inhaltliche Korrekturen</h3>
+    <ul style="font-size: 13px; color: var(--text); line-height: 1.7; padding-left: 18px; margin-bottom: 18px;">
+      <li><strong>Rathenau-Hallen / BaseCamp Campus</strong> (#05, #06, #31, #69): Eigentümer von XIOR auf <strong>Empira Group</strong> umgestellt. XIOR-Phase 2022–2025 bleibt als Historie dokumentiert. Vehikel weiterhin ESHF II / BaseCamp Student GmbH. Empira-Übernahme öffentlich noch nicht dokumentiert — neue offene Frage: <em>Asset Manager, Finanzierer oder Projektentwickler?</em></li>
+      <li><strong>#70 Gründerzentrum Reinbeckhallen</strong> als eigenständiger Eintrag (vorher Daten-Dublette mit #69).</li>
+    </ul>
+
+    <h3 style="margin-top: 16px;">Neue Funktionen</h3>
+    <ul style="font-size: 13px; color: var(--text); line-height: 1.7; padding-left: 18px; margin-bottom: 18px;">
+      <li><strong>🌍 Live-Karte (OSM)</strong> mit echten Geokoordinaten und Cluster — Toggle zur schematischen Karte oben im Karten-Bereich. Filter (Suche, Status, Gebiet) wirken auf beide Karten.</li>
+      <li><strong>Aktualitäts-Ampel</strong> pro Eintrag: grünes/gelbes/rotes Badge "Stand: MM/YYYY" zeigt, wie frisch die Info ist (grün < 6 Mon., gelb 6–12, rot > 12).</li>
+      <li><strong>✏️ Korrektur melden</strong>-Knopf in jedem Detail-Eintrag — öffnet vorausgefülltes GitHub-Issue im Repo. Niedrigste Hürde, damit das Register laufend aktuell bleibt.</li>
+    </ul>
+
+    <h3 style="margin-top: 16px;">Karten-Präzision</h3>
+    <ul style="font-size: 13px; color: var(--text); line-height: 1.7; padding-left: 18px; margin-bottom: 18px;">
+      <li>Funkhaus Nalepastraße, Funkytown, Spreepark präzise verortet (lagen vorher im falschen Spree-Abschnitt).</li>
+      <li>7 weitere Einträge mit präzisen Adressen statt OSW-Centroid: Rolls-Royce, SPREEPOLIS, Lead, IRIS, ADMOS, ibis Styles, ksg Architekten.</li>
+      <li>Dokumente und Initiativen ohne festen Ort (Rahmenplan OSW, ITZ 4.0, IBA 2034, Standortgemeinschaft, Energie-Museum) erscheinen nur noch in Liste und Detail, nicht mehr auf der Karte.</li>
+    </ul>
+
+    <p style="font-size: 11px; color: var(--text2); margin-bottom: 16px;">Hinweis: Karten-Tiles auf <strong>Carto Voyager</strong> umgestellt (heller, lesbarer als die vorherige Dark-Matter-Variante).</p>
+
+    <div id="changelogList" style="max-height: 300px; overflow-y: auto; display: none;"></div>
     
     <p style="font-size: 12px; color: var(--text2); margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border);">Die Einträge sind in der alphabetischen Liste verfügbar. Klicken Sie auf einen Eintrag, um Details zu sehen.</p>
   </div>
@@ -921,8 +940,8 @@ function correctionLink(p){
 
 // === Geokoordinaten (Stand 05/2026, via OSM Nominatim + manuelle Korrekturen) ===
 const COORDS={
-"01":[52.456165,13.529477],"02":[52.465387,13.507092],"03":[52.456165,13.529477],
-"04":[52.468757,13.504308],"05":[52.460865,13.51631],"06":[52.460865,13.51631],
+"01":[52.456165,13.529477],"02":[52.479,13.5005],"03":[52.456165,13.529477],
+"04":[52.48026,13.50108],"05":[52.460865,13.51631],"06":[52.460865,13.51631],
 "07":[52.457118,13.527673],"08":[52.456165,13.529477],"09":[52.46111,13.519865],
 "10":[52.46057,13.522037],"11":[52.460625,13.508975],"12":[52.456165,13.529477],
 "13":[52.46088,13.518886],"14":[52.46088,13.518886],"15":[52.463372,13.508923],
@@ -937,7 +956,7 @@ const COORDS={
 "37":[52.454882,13.509617],"38":[52.452609,13.518798],"39":[52.452475,13.527851],
 "40":[52.451991,13.532099],"42":[52.455324,13.55942],"43":[52.452513,13.534068],
 "44":[52.462908,13.510734],"45":[52.4624,13.509995],"46":[52.463372,13.508923],
-"47":[52.462956,13.51025],"48":[52.4885,13.4859],"49":[52.459926,13.517617],
+"47":[52.462956,13.51025],"48":[52.48493,13.48899],"49":[52.459926,13.517617],
 "50":[52.461118,13.517567],
 /* #51 Rahmenplan OSW, #53 ITZ 4.0, #54 IBA 2034, #55 Standortgemeinschaft: Dokumente/Initiativen ohne festen Ort, kein Marker */
 "52":[52.46858,13.504221],

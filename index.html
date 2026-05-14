@@ -252,7 +252,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 .help-btn:hover { background: rgba(168,85,247,0.28); }
 
 /* WELCOME OVERLAY (Startseite beim ersten Besuch) */
-.welcome-overlay { position: fixed; inset: 0; background: rgba(15,17,23,0.985); backdrop-filter: blur(12px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
+.welcome-overlay { position: fixed; inset: 0; background: rgba(15,17,23,0.985); backdrop-filter: blur(12px); z-index: 9999; display: none; align-items: flex-start; justify-content: center; padding: 40px 20px; overflow-y: auto; }
 .welcome-overlay.show { display: flex; }
 .welcome-card { max-width: 820px; width: 100%; background: linear-gradient(135deg, #1A1D27 0%, #232733 100%); border: 1px solid rgba(249,115,22,0.3); border-radius: 20px; padding: 40px 48px; box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 60px rgba(249,115,22,0.08); position: relative; }
 .welcome-card .wc-mark { display: flex; align-items: center; gap: 22px; margin-bottom: 28px; flex-wrap: wrap; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
@@ -427,9 +427,9 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
     </div>
 
     <div class="wc-actions">
-      <button class="wc-btn-primary" onclick="dismissWelcome()">→ Register erkunden</button>
-      <button class="wc-btn-secondary" onclick="dismissWelcome();document.getElementById('helpPanel').classList.add('show');">❓ Anleitung lesen</button>
-      <button class="wc-btn-secondary" onclick="dismissWelcome();document.getElementById('introPanel').classList.add('show');">ℹ Mehr Kontext</button>
+      <button class="wc-btn-primary" onclick="dismissWelcome()">Register erkunden →</button>
+      <button class="wc-btn-secondary" onclick="dismissWelcome();document.getElementById('helpPanel').classList.add('show');">Anleitung lesen</button>
+      <button class="wc-btn-secondary" onclick="dismissWelcome();document.getElementById('introPanel').classList.add('show');">Mehr Kontext</button>
     </div>
 
     <div class="wc-meta">

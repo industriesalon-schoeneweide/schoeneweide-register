@@ -246,6 +246,24 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 /* Intro & Sources Panel */
 .info-btn { background: rgba(59,130,246,0.18); border: 1px solid rgba(59,130,246,0.5); color: var(--blue); padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif; margin-left: 8px; white-space: nowrap; }
 .info-btn:hover { background: rgba(59,130,246,0.3); }
+.mitmachen-btn { background: linear-gradient(135deg, rgba(249,115,22,0.25), rgba(34,197,94,0.25)); border: 1px solid rgba(249,115,22,0.6); color: #FBBF24; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 700; transition: all 0.2s; font-family: 'Inter', sans-serif; margin-left: 8px; white-space: nowrap; box-shadow: 0 0 12px rgba(249,115,22,0.2); }
+.mitmachen-btn:hover { background: linear-gradient(135deg, rgba(249,115,22,0.4), rgba(34,197,94,0.4)); transform: translateY(-1px); box-shadow: 0 2px 16px rgba(249,115,22,0.35); }
+.help-btn { background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.45); color: #C084FC; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif; margin-left: 8px; white-space: nowrap; }
+.help-btn:hover { background: rgba(168,85,247,0.28); }
+.help-section { margin: 20px 0; padding: 16px 18px; border-radius: 10px; background: var(--surface2); border: 1px solid var(--border); }
+.help-section h4 { margin: 0 0 10px; font-size: 14px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+.help-section h4 .num { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 700; }
+.help-section p, .help-section li { font-size: 13px; color: var(--text); line-height: 1.6; }
+.help-section ul { padding-left: 20px; margin: 8px 0; }
+.help-key { display: inline-block; padding: 2px 8px; border-radius: 4px; background: rgba(255,255,255,0.08); border: 1px solid var(--border); font-family: monospace; font-size: 11px; color: var(--text); }
+.mitmach-card { display: block; padding: 18px 20px; margin: 10px 0; border-radius: 12px; background: var(--surface2); border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: all 0.2s; cursor: pointer; }
+.mitmach-card:hover { border-color: var(--accent); transform: translateX(2px); background: rgba(249,115,22,0.05); }
+.mitmach-card h4 { margin: 0 0 6px; font-size: 15px; color: var(--text); }
+.mitmach-card p { margin: 0; font-size: 13px; color: var(--text2); line-height: 1.55; }
+.mitmach-card .pill { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; margin-right: 8px; vertical-align: middle; }
+.mitmach-card .pill.korrektur { background: rgba(249,115,22,0.15); color: #FB923C; border: 1px solid rgba(249,115,22,0.3); }
+.mitmach-card .pill.luecke { background: rgba(234,179,8,0.15); color: #FBBF24; border: 1px solid rgba(234,179,8,0.3); }
+.mitmach-card .pill.neu { background: rgba(34,197,94,0.15); color: #4ADE80; border: 1px solid rgba(34,197,94,0.3); }
 .src-btn { background: rgba(34,197,94,0.18); border: 1px solid rgba(34,197,94,0.5); color: var(--green); padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif; margin-left: 8px; white-space: nowrap; }
 .src-btn:hover { background: rgba(34,197,94,0.3); }
 .overlay-panel { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 9999; display: none; justify-content: center; align-items: flex-start; padding: 40px 20px; overflow-y: auto; }
@@ -450,6 +468,10 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
     <h3>Datenpflege &amp; Aktualisierung</h3>
     <p>Dieses Register ist ein <strong>lebendes Dokument</strong>. Eigentümer wechseln, Bauphasen schreiten voran, Mietverhältnisse verändern sich, neue Akteure kommen hinzu. Damit das Register seinen Wert als gemeinsames Lagebild der Standortgemeinschaft behält, braucht es laufende Pflege.</p>
 
+    <div style="margin:14px 0;padding:14px 18px;background:linear-gradient(135deg,rgba(249,115,22,0.08),rgba(34,197,94,0.08));border:1px solid rgba(249,115,22,0.3);border-radius:10px;">
+      <p style="margin:0;font-size:14px;line-height:1.6;"><strong>🤝 Mach mit!</strong> Hinweise auf <strong>Korrekturen</strong>, <strong>Lücken</strong> und Vorschläge für <strong>neue Einträge</strong> sind ausdrücklich erwünscht. Im Header oben findest Du den <em>&bdquo;🤝 Mitmachen&ldquo;</em>-Knopf mit den drei Wegen. Auch eine kurze Mail an <a href="mailto:info@industriesalon.de" style="color:var(--blue);">info@industriesalon.de</a> reicht.</p>
+    </div>
+
     <p><strong>Drei Mechanismen halten die Daten frisch:</strong></p>
     <ol style="line-height:1.7;padding-left:20px;margin-top:8px;">
       <li><strong>Stand-Ampel pro Eintrag.</strong> Jeder Eintrag trägt ein Datum &bdquo;Stand: MM/JJJJ&ldquo;. Das Badge ist <span style="color:#4ADE80;font-weight:600;">grün</span> bei &lt; 6 Monaten, <span style="color:#FACC15;font-weight:600;">gelb</span> bei 6&ndash;12 Monaten, <span style="color:#F87171;font-weight:600;">rot</span> ab 12 Monaten. So sieht jede:r sofort, welche Profile als nächstes überprüft werden sollten.</li>
@@ -474,10 +496,132 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
     Tel. (030) 53 00 70 42 · <a href="mailto:info@industriesalon.de">info@industriesalon.de</a><br>
     <a href="https://www.industriesalon.de" target="_blank">industriesalon.de</a><br>
     Vorstand: Alexa Steindorf-Aust (Vorsitzende), Klaus Burmeister (stellv. Vorsitzender), Susanne Reumschüssel<br>
-    Vereinsregister: AG Charlottenburg VR 29071 B · Gemeinnützig anerkannt (Freistellungsbescheid 21.09.2021)<br>
+    Amtsgericht Charlottenburg, Aktenzeichen VR 29071 B – laufende Nummer 3 · Gemeinnützig anerkannt (Freistellungsbescheid 21.09.2021)<br>
     Sprecher Standortgemeinschaft Oberschöneweide: Klaus Burmeister</p>
     <p style="font-size:12px;color:var(--text2);">Vollständiges Impressum und Datenschutzerklärung: Links im Footer der Karten-Ansicht.</p>
-    <p style="font-size:12px;color:var(--text2);margin-top:16px;">Version Beta_03 (05-2026) &middot; v11 — Impressum &amp; Datenschutz, Datenpflege-Workflow im Register, präzise Marker (Funkhaus, Spreepark, …), Empira-Korrektur, Live-Karte (OSM, Voyager), Aktualitäts-Ampel, Korrektur-Knopf, TransLab als Projektkontext</p>
+    <p style="font-size:12px;color:var(--text2);margin-top:16px;">Version Beta_03 (05-2026) &middot; v11 — Anleitungs-Panel (7 Schritte), Mitmachen-Knopf (Korrektur · Lücke · Neuer Eintrag), ESC-Taste schließt Panels, Impressum &amp; Datenschutz, Datenpflege-Workflow, präzise Marker (Funkhaus, Spreepark, …), Empira-Korrektur, Live-Karte (OSM, Voyager), Aktualitäts-Ampel, TransLab als Projektkontext</p>
+  </div>
+</div>
+
+
+<!-- ANLEITUNG / HELP PANEL -->
+<div class="overlay-panel" id="helpPanel" onclick="if(event.target===this)this.classList.remove('show')">
+  <div class="overlay-content" style="max-width:780px;">
+    <button class="overlay-close" onclick="document.getElementById('helpPanel').classList.remove('show')">&times;</button>
+    <h2>❓ Anleitung — So nutzt Du das Register</h2>
+    <p style="font-size:14px;color:var(--text);line-height:1.6;">Das Register enthält <strong>68 Standort-Profile</strong> für den Zukunftsort Schöneweide — Eigentümer, Mieter, Projektentwickler, Initiativen. Du kannst suchen, filtern, kartografisch erkunden und mitmachen.</p>
+
+    <div class="help-section">
+      <h4><span class="num">1</span> Schnellstart in 30 Sekunden</h4>
+      <ul>
+        <li><strong>Liste links:</strong> alle 68 Akteure, sortier- und filterbar.</li>
+        <li><strong>Suchfeld oben:</strong> tippe einen Namen, Eigentümer, eine Branche oder Adresse — Liste filtert live mit.</li>
+        <li><strong>Karte rechts:</strong> zwischen schematischer Übersicht und Live-Karte (OpenStreetMap) umschaltbar.</li>
+        <li><strong>Klick auf einen Listen-Eintrag oder Karten-Marker:</strong> öffnet die Detail-Ansicht mit allem, was wir wissen.</li>
+        <li><strong>🤝 Mitmachen oben rechts:</strong> Hinweise, Korrekturen, neue Einträge melden.</li>
+      </ul>
+    </div>
+
+    <div class="help-section">
+      <h4><span class="num">2</span> Liste filtern und sortieren</h4>
+      <p>Über der Liste findest Du drei Filter-Reihen:</p>
+      <ul>
+        <li><strong>Status-Filter:</strong> <span style="color:#22C55E;">Aktiv</span> / <span style="color:#3B82F6;">Entwicklung</span> / <span style="color:#A855F7;">Geplant</span> / <span style="color:#94A3B8;">Unklar</span> · plus <em>Mieter</em> (filtert alle, die nur Mieter sind, unabhängig vom Status).</li>
+        <li><strong>Gebiets-Filter:</strong> Oberschöneweide / Niederschöneweide / Nalepastraße / Wuhlheide / Plänterwald. Wichtig: Funkhaus &amp; Funkytown liegen in der <em>Nalepastraße</em>, nicht in Oberschöneweide.</li>
+        <li><strong>Sortierung:</strong> nach Eintrags-Nummer (#), Alphabet (A–Z), Gebiet oder Status.</li>
+      </ul>
+      <p style="margin-top:10px;">Filter wirken auf <strong>Liste und Karte gleichzeitig</strong> — was Du wegfilterst, verschwindet auch von der Karte.</p>
+    </div>
+
+    <div class="help-section">
+      <h4><span class="num">3</span> Die zwei Karten</h4>
+      <ul>
+        <li><strong>🗺️ Schematische Karte:</strong> stilisierte Übersicht mit den fünf Gebietszonen. Klick auf eine Zone setzt automatisch den Gebietsfilter. Gut für die schnelle Orientierung am Touchscreen im Industriesalon.</li>
+        <li><strong>🌍 Live-Karte (OSM):</strong> echte Karte mit präzisen Geokoordinaten. Marker sind nach Status eingefärbt. Bei vielen Markern im selben Ausschnitt erscheinen <strong>Cluster-Kreise mit Zahl</strong> — Klick darauf zoomt rein und löst auf. Klick auf einen Marker öffnet ein Popup mit Schnellinfo und <em>&bdquo;Details öffnen →&ldquo;</em>.</li>
+      </ul>
+      <p style="margin-top:10px;font-size:12px;color:var(--text2);">Hinweis: Dokumente und Initiativen ohne festen Ort (Rahmenplan, IBA 2034, ITZ 4.0, Standortgemeinschaft) erscheinen <em>nur in der Liste</em>, nicht auf der Live-Karte. Sie sind keine Orte, sondern Konzepte.</p>
+    </div>
+
+    <div class="help-section">
+      <h4><span class="num">4</span> Detail-Ansicht eines Eintrags lesen</h4>
+      <p>Klick auf einen Listen-Eintrag oder Karten-Marker öffnet die volle Detail-Ansicht. Du siehst:</p>
+      <ul>
+        <li><strong>Kopf mit Status-Badge, Rolle und Stand-Ampel</strong> (s.u.).</li>
+        <li><strong>Eckdaten:</strong> Adresse, Gebiet, Fläche, Investition, Kaufpreis, Arbeitsplätze, Branche.</li>
+        <li><strong>&bdquo;Was war früher hier?&ldquo;</strong> — historische Vornutzung (AEG, KWO, TRO, …).</li>
+        <li><strong>&bdquo;Hintergrundgeschichte&ldquo;</strong> — Entwicklung seit 1990.</li>
+        <li><strong>&bdquo;Aktueller Stand&ldquo;</strong> — was läuft heute, inkl. Rahmenplan-Bezüge und Workshop-Erkenntnissen.</li>
+        <li><strong>&bdquo;Offene Fragen&ldquo;</strong> — wo wir mehr wissen müssten.</li>
+        <li><strong>Quellen-Zeile</strong> und Link zur Website.</li>
+        <li><strong>✏️ Korrektur melden</strong> — Knopf unten rechts.</li>
+      </ul>
+    </div>
+
+    <div class="help-section">
+      <h4><span class="num">5</span> Stand-Ampel verstehen</h4>
+      <p>Jeder Eintrag hat ein Datums-Badge &bdquo;Stand: MM/JJJJ&ldquo;. Die Farbe zeigt, wie frisch die Information ist:</p>
+      <ul>
+        <li><span class="verify-badge verify-fresh" style="margin-left:0;">Stand: frisch</span> &nbsp;weniger als 6 Monate alt — Information gilt als verlässlich aktuell.</li>
+        <li><span class="verify-badge verify-aging" style="margin-left:0;">Stand: alternd</span> &nbsp;6 bis 12 Monate alt — bitte mit etwas Vorsicht verwenden.</li>
+        <li><span class="verify-badge verify-stale" style="margin-left:0;">Stand: alt</span> &nbsp;älter als 12 Monate — überprüfen empfohlen. Hinweise via Korrektur-Knopf willkommen.</li>
+      </ul>
+    </div>
+
+    <div class="help-section">
+      <h4><span class="num">6</span> Die Knöpfe oben im Header</h4>
+      <ul>
+        <li><strong>🤝 Mitmachen</strong> — Hinweise melden (Korrektur, Lücke, neuer Eintrag).</li>
+        <li><strong>❓ Anleitung</strong> — diese Hilfe hier.</li>
+        <li><strong>ℹ Über den Standort</strong> — Einleitung, Geschichte, Datenpflege, Herausgeber.</li>
+        <li><strong>📚 Quellen</strong> — vollständiges Quellenverzeichnis (60+ Dokumente).</li>
+        <li><strong>Neu</strong> — Changelog der aktuellen Version.</li>
+        <li><strong>📊 Statistik</strong> — Verteilungen nach Rollen, Status, Gebieten, Top-Branchen.</li>
+        <li><strong>⬇ Export</strong> — gesamtes Register als CSV oder JSON herunterladen.</li>
+      </ul>
+    </div>
+
+    <div class="help-section">
+      <h4><span class="num">7</span> Tastatur-Kürzel</h4>
+      <ul>
+        <li><span class="help-key">Esc</span> &nbsp;schließt offene Panels (Anleitung, Mitmachen, Statistik, …).</li>
+        <li><span class="help-key">⌘ + Shift + R</span> &nbsp;(macOS) bzw. <span class="help-key">Strg + Shift + R</span> (Windows/Linux) &nbsp;erzwingt einen Hard-Reload — nützlich nach einer neuen Version.</li>
+      </ul>
+    </div>
+
+    <div style="margin-top:24px;padding:16px 20px;background:linear-gradient(135deg,rgba(249,115,22,0.08),rgba(34,197,94,0.08));border:1px solid rgba(249,115,22,0.3);border-radius:12px;">
+      <p style="margin:0;font-size:14px;line-height:1.6;"><strong>🤝 Etwas stimmt nicht oder fehlt?</strong> Klick auf den <em>Mitmachen</em>-Knopf oben rechts oder schreibe an <a href="mailto:info@industriesalon.de" style="color:var(--blue);">info@industriesalon.de</a>. Vor-Ort-Wissen aus der Standortgemeinschaft ist der wichtigste Pflegekanal dieses Registers.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- MITMACHEN PANEL -->
+<div class="overlay-panel" id="mitmachenPanel" onclick="if(event.target===this)this.classList.remove('show')">
+  <div class="overlay-content" style="max-width:720px;">
+    <button class="overlay-close" onclick="document.getElementById('mitmachenPanel').classList.remove('show')">&times;</button>
+    <h2>🤝 Mitmachen — das Register lebt vom Mitwissen</h2>
+    <p style="font-size:14px;line-height:1.65;color:var(--text);">Dieses Register ist ein <strong>gemeinsames Lagebild der Standortgemeinschaft Oberschöneweide</strong>. Es entsteht aus Recherche, Workshops und vor allem aus dem Vor-Ort-Wissen der Akteure am Standort. Damit es genau und aktuell bleibt, brauchen wir <strong>Deinen Hinweis</strong>. Drei Wege — jeder Klick öffnet ein vorausgefülltes Formular im GitHub-Repository:</p>
+
+    <a href="https://github.com/industriesalon-schoeneweide/schoeneweide-register/issues/new?labels=korrektur&title=Korrektur:%20[Eintrags-Nr.]%20[Name]&body=**Eintrag:**%20%23XX%20Name%0A%0A**Was%20ist%20falsch%20oder%20veraltet?**%0A(z.B.%20Eigent%C3%BCmer,%20Adresse,%20Status,%20aktueller%20Stand,%20…)%0A%0A**Korrektur%20/%20neue%20Information:**%0A%0A%0A**Quelle%20(Link,%20Dokument,%20Vor-Ort-Wissen):**%0A" target="_blank" rel="noopener" class="mitmach-card">
+      <h4><span class="pill korrektur">KORREKTUR</span>Ein bestehender Eintrag stimmt nicht (mehr)</h4>
+      <p>Eigentümer hat gewechselt, Adresse veraltet, Status falsch, Investitionssumme aktualisiert, Ansprechpartner ausgetauscht. Auch wenn ein Marker auf der Karte am falschen Ort sitzt. Tipp: Du findest in jedem Eintrag unten den gleichen Korrektur-Knopf — dort ist die Eintrags-Nr. schon vorausgefüllt.</p>
+    </a>
+
+    <a href="https://github.com/industriesalon-schoeneweide/schoeneweide-register/issues/new?labels=l%C3%BCcke&title=L%C3%BCcke:%20[Thema/Bereich]&body=**Welche%20L%C3%BCcke%20gibt%20es%20im%20Register?**%0A(z.B.%20Areal%20mit%20unbekanntem%20Eigent%C3%BCmer,%20fehlende%20Investitionssumme,%20unklare%20Mietsituation,%20historische%20Information%20fehlt,%20…)%0A%0A**Wo%20genau?**%0A(Adresse,%20Gebiet,%20Eintrag%20%23XX%20falls%20zuordbar)%0A%0A**Welche%20Information%20w%C3%BCrde%20das%20Register%20vervollst%C3%A4ndigen?**%0A%0A%0A**Hast%20Du%20einen%20Hinweis%20auf%20Quellen%20oder%20Ansprechpartner?**%0A" target="_blank" rel="noopener" class="mitmach-card">
+      <h4><span class="pill luecke">LÜCKE</span>Eine Information fehlt komplett</h4>
+      <p>Eigentümer unbekannt, Investitionssumme nicht öffentlich, Mietverhältnisse unklar, historische Vorgeschichte lückenhaft. Auch &bdquo;ich weiß zufällig, wer dort Eigentümer ist, das steht aber nirgends im Netz&ldquo; ist Gold wert.</p>
+    </a>
+
+    <a href="https://github.com/industriesalon-schoeneweide/schoeneweide-register/issues/new?labels=neuer-eintrag&title=Neuer%20Eintrag:%20[Name]&body=**Vorschlag%20f%C3%BCr%20einen%20neuen%20Register-Eintrag**%0A%0A**Name%20des%20Akteurs%20/%20Areals:**%0A%0A**Adresse%20/%20Gebiet:**%0A(Oberschöneweide,%20Niederschöneweide,%20Nalepastraße,%20Wuhlheide,%20Plänterwald)%0A%0A**Rolle:**%0A(Eigent%C3%BCmer%20/%20Mieter%20/%20Projektentwickler%20/%20Initiative)%0A%0A**Branche%20/%20Nutzung:**%0A%0A**Aktueller%20Stand%20/%20Status:**%0A(aktiv%20/%20in%20Entwicklung%20/%20geplant%20/%20unklar)%0A%0A**Warum%20ist%20dieser%20Akteur%20wichtig%20f%C3%BCr%20den%20Zukunftsort%20Schöneweide?**%0A%0A**Quellen%20/%20Kontakt:**%0A" target="_blank" rel="noopener" class="mitmach-card">
+      <h4><span class="pill neu">NEUER EINTRAG</span>Ein wichtiger Akteur fehlt im Register</h4>
+      <p>Ein Unternehmen, eine Initiative, ein Atelierhaus, ein Eigentümer-Vehikel, eine Projektentwicklung — bisher nicht erfasst. Auch geplante Vorhaben und Initiativen, die das Standortbild prägen werden, sind willkommen.</p>
+    </a>
+
+    <div style="margin-top:24px;padding:14px 18px;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.2);border-radius:10px;">
+      <p style="margin:0;font-size:13px;line-height:1.6;color:var(--text);"><strong>Kein GitHub-Account?</strong> Schreib direkt eine E-Mail an <a href="mailto:info@industriesalon.de?subject=Hinweis%20zum%20Schöneweide-Register" style="color:var(--blue);font-weight:600;">info@industriesalon.de</a> mit Betreff <em>&bdquo;Hinweis zum Schöneweide-Register&ldquo;</em>. Wir tragen Deinen Hinweis in die nächste Version ein und bestätigen den Eingang.</p>
+    </div>
+
+    <p style="margin-top:24px;font-size:12px;color:var(--text2);line-height:1.55;">Hinweise werden in der Redaktion (Industriesalon Schöneweide e.V. / TransLab) geprüft. Bei sensiblen Informationen (z.B. Vor-Ort-Wissen ohne öffentliche Quelle) markieren wir den Eintrag entsprechend und nennen Dich nicht namentlich, wenn Du das nicht möchtest.</p>
   </div>
 </div>
 
@@ -497,7 +641,8 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 
     <h3>Vertretungsberechtigter Vorstand (§26 BGB)</h3>
     <p>Alexa Steindorf-Aust (Vorsitzende)<br>
-    Klaus Burmeister (stellvertretender Vorsitzender)</p>
+    Klaus Burmeister (stellvertretender Vorsitzender)<br>
+    Susanne Reumschüssel</p>
 
     <h3>Kontakt</h3>
     <p>Telefon: <a href="tel:+4930530070042" style="color:var(--blue);">(030) 53 00 70 42</a><br>
@@ -505,8 +650,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
     Web: <a href="https://www.industriesalon.de" target="_blank" rel="noopener">www.industriesalon.de</a></p>
 
     <h3>Registereintrag</h3>
-    <p>Vereinsregister Amtsgericht Berlin (Charlottenburg)<br>
-    Registernummer: <strong>VR 29071 B</strong> (laufende Nummer 3)</p>
+    <p>Amtsgericht Charlottenburg, Aktenzeichen: <strong>VR 29071 B – laufende Nummer 3</strong></p>
 
     <h3>Gemeinnützigkeit</h3>
     <p style="font-size:13px;">Der Industriesalon Schöneweide e.V. ist als gemeinnützig anerkannt (Freistellungsbescheid des Finanzamts für Körperschaften I Berlin vom 21.09.2021).</p>
@@ -668,6 +812,8 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
     <div><h1>Eigentümer- & Investorenregister</h1><div class="subtitle">Zukunftsort Schöneweide &middot; Beta_03 (05-2026)</div></div>
   </div>
   <div style="display:flex;align-items:center;gap:4px;">
+    <button class="mitmachen-btn" onclick="document.getElementById('mitmachenPanel').classList.add('show')" title="Hinweise, Lücken, neue Einträge melden">🤝 Mitmachen</button>
+    <button class="help-btn" onclick="document.getElementById('helpPanel').classList.add('show')" title="Wie bediene ich das Register?">❓ Anleitung</button>
     <button class="info-btn" onclick="document.getElementById('introPanel').classList.add('show')">ℹ Über den Standort</button>
     <button class="src-btn" onclick="document.getElementById('srcPanel').classList.add('show')">📚 Quellen</button>
     <button class="v08-btn" onclick="document.getElementById('changelogPanel').classList.add('show')">Neu</button>
@@ -936,6 +1082,8 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
         <div class="unknown-card"><div class="q-mark">?</div><div><div class="name">Hasselwerder Str. / Ufer (NSW)</div><div class="desc">Mischgebiet. Öffentlicher Spreeufer-Zugang offen.</div></div></div>
       </div>
       <div class="map-footer">Eigentümer- & Investorenregister &middot; Version Beta_03 (05-2026) &middot; 68 Profile &middot; Industriesalon Schöneweide e.V. &middot; TransLab<br>
+      <a href="#" onclick="document.getElementById('mitmachenPanel').classList.add('show');return false;" style="color:var(--accent);margin:0 6px;text-decoration:underline;font-weight:600;">🤝 Mitmachen</a> &middot;
+      <a href="#" onclick="document.getElementById('helpPanel').classList.add('show');return false;" style="color:var(--text2);margin:0 6px;text-decoration:underline;">❓ Anleitung</a> &middot;
       <a href="#" onclick="document.getElementById('impressumPanel').classList.add('show');return false;" style="color:var(--text2);margin:0 6px;text-decoration:underline;">Impressum</a> &middot;
       <a href="#" onclick="document.getElementById('datenschutzPanel').classList.add('show');return false;" style="color:var(--text2);margin:0 6px;text-decoration:underline;">Datenschutz</a> &middot;
       <a href="https://github.com/industriesalon-schoeneweide/schoeneweide-register" target="_blank" rel="noopener" style="color:var(--text2);margin:0 6px;text-decoration:underline;">GitHub-Repository</a></div>
@@ -951,9 +1099,20 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
     <h2>Neu in Beta_03 (v11)</h2>
     <p style="color: var(--text2); margin-bottom: 20px;">Mai 2026 · Rechtskonform + Datenpflege-Workflow + Live-Karte + Inhalts-Korrekturen</p>
 
+    <h3 style="margin-top: 16px;">Aufruf zur Mitarbeit</h3>
+    <ul style="font-size: 13px; color: var(--text); line-height: 1.7; padding-left: 18px; margin-bottom: 18px;">
+      <li><strong>🤝 Mitmachen-Knopf</strong> im Header und im Footer — öffnet ein Panel mit drei klar getrennten Wegen: <em>Korrektur</em> (Eintrag stimmt nicht), <em>Lücke</em> (Information fehlt), <em>Neuer Eintrag</em> (Akteur fehlt). Jeder Weg öffnet ein vorausgefülltes GitHub-Issue. Wer kein GitHub-Account hat, kann direkt an info@industriesalon.de schreiben.</li>
+    </ul>
+
+    <h3 style="margin-top: 16px;">Bedienung</h3>
+    <ul style="font-size: 13px; color: var(--text); line-height: 1.7; padding-left: 18px; margin-bottom: 18px;">
+      <li><strong>❓ Anleitung-Panel</strong> im Header: 7-teilige Schritt-für-Schritt-Erklärung (Schnellstart, Filter, Karten, Detail-Ansicht, Stand-Ampel, Header-Knöpfe, Tastaturkürzel).</li>
+      <li><strong>ESC-Taste</strong> schließt alle offenen Panels.</li>
+    </ul>
+
     <h3 style="margin-top: 16px;">Rechtskonformität &amp; Transparenz</h3>
     <ul style="font-size: 13px; color: var(--text); line-height: 1.7; padding-left: 18px; margin-bottom: 18px;">
-      <li><strong>Vollständiges Impressum</strong> nach §5 DDG / §18 MStV (Footer-Link). TransLab als Projektkontext genannt.</li>
+      <li><strong>Vollständiges Impressum</strong> nach §5 DDG / §18 MStV (Footer-Link). Mit echten Vereinsdaten: Vorstand Alexa Steindorf-Aust, Klaus Burmeister, Susanne Reumschüssel · Amtsgericht Charlottenburg VR 29071 B · TransLab als Projektkontext.</li>
       <li><strong>Datenschutzerklärung</strong> nach Art. 13/14 DSGVO mit Hinweis auf alle externen Ressourcen (GitHub Pages, Google Fonts, Carto/OSM).</li>
       <li><strong>Datenpflege-Abschnitt</strong> im &bdquo;Über den Standort&ldquo;-Panel: Wie bleibt das Register aktuell? Stand-Ampel, Korrektur-Knopf, Sprechstunde, technischer Workflow &mdash; alles im Register dokumentiert.</li>
     </ul>
@@ -1513,6 +1672,13 @@ function closeLivePopupThen(i){
   if(liveMapInstance) liveMapInstance.closePopup();
   showDetail(i);
 }
+
+// ESC schließt alle offenen Overlay-Panels
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    document.querySelectorAll(".overlay-panel.show").forEach(p => p.classList.remove("show"));
+  }
+});
 document.querySelectorAll(".filter-btn").forEach(btn=>{btn.onclick=()=>{document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active");af=btn.dataset.filter;renderList();};});
 document.querySelectorAll(".map-prop").forEach(g=>{g.onclick=()=>showDetail(parseInt(g.dataset.id));});
 renderList();

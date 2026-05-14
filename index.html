@@ -447,11 +447,130 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
     <p><strong>1990&ndash;2010 Deindustrialisierung:</strong> Über 21.000 Arbeitsplätze gehen verloren. 300.000 m² Denkmalsubstanz stehen leer. Spekulative Eigentümer warten auf Wertsteigerung. Gleichzeitig entsteht eine Zwischennutzungsökonomie &mdash; Künstler, Kreative, Kulturinitiativen siedeln sich an.</p>
     <p><strong>Seit 2009 Neuerfindung:</strong> Drei Strukturentscheidungen &mdash; HTW-Campus (2009), Regionalmanagement WISTA (2011&ndash;2021), private Investitionsdynamik (Behrens-Ufer, Trockland, MaHalla, Reinbeckhallen). 2024: Gründung der Standortgemeinschaft Schöneweide. 2025/26: LOKATION:S-Rahmenplan, Standort-Workshop, Stellungnahme, Futura Biennale.</p>
 
+    <h3>Datenpflege &amp; Aktualisierung</h3>
+    <p>Dieses Register ist ein <strong>lebendes Dokument</strong>. Eigentümer wechseln, Bauphasen schreiten voran, Mietverhältnisse verändern sich, neue Akteure kommen hinzu. Damit das Register seinen Wert als gemeinsames Lagebild der Standortgemeinschaft behält, braucht es laufende Pflege.</p>
+
+    <p><strong>Drei Mechanismen halten die Daten frisch:</strong></p>
+    <ol style="line-height:1.7;padding-left:20px;margin-top:8px;">
+      <li><strong>Stand-Ampel pro Eintrag.</strong> Jeder Eintrag trägt ein Datum &bdquo;Stand: MM/JJJJ&ldquo;. Das Badge ist <span style="color:#4ADE80;font-weight:600;">grün</span> bei &lt; 6 Monaten, <span style="color:#FACC15;font-weight:600;">gelb</span> bei 6&ndash;12 Monaten, <span style="color:#F87171;font-weight:600;">rot</span> ab 12 Monaten. So sieht jede:r sofort, welche Profile als nächstes überprüft werden sollten.</li>
+      <li><strong>Korrektur-Knopf in jedem Eintrag.</strong> Unten in jeder Detail-Ansicht steht <em>&bdquo;✏️ Korrektur melden&ldquo;</em>. Klick öffnet ein vorausgefülltes GitHub-Issue im Repository. Niedrigste Hürde &mdash; jede:r mit GitHub-Account kann Hinweise einspeisen. Auch Vor-Ort-Wissen aus der Standortgemeinschaft.</li>
+      <li><strong>Halbjährliche Sprechstunde im Industriesalon.</strong> Vorschlag: Zwei Termine im Jahr (Frühjahr/Herbst), 60 Minuten, am Touchscreen. Mitglieder gehen die Einträge in ihrem Verantwortungsbereich durch. Roter und gelber Ampelstand zuerst.</li>
+    </ol>
+
+    <p style="margin-top:14px;"><strong>Technischer Update-Workflow</strong> (für die Redaktion):</p>
+    <ol style="line-height:1.7;padding-left:20px;margin-top:8px;font-size:13px;">
+      <li>Korrekturhinweise und Quellen sammeln (GitHub-Issues, Mail, Workshop-Notizen).</li>
+      <li>Lokale <code>index.html</code> bearbeiten (Daten-Array <code>const P=[…]</code>, ggf. <code>COORDS</code> für Karten-Marker, <code>lastVerified</code>-Datum pro geändertem Eintrag setzen).</li>
+      <li>Versionsstring (Footer + Changelog-Panel) hochbumpen, kurzen Eintrag im Changelog ergänzen.</li>
+      <li>Im Repo <a href="https://github.com/industriesalon-schoeneweide/schoeneweide-register" target="_blank" rel="noopener" style="color:var(--blue);">industriesalon-schoeneweide/schoeneweide-register</a> via <em>Add file → Upload files</em> hochladen, Commit-Message mit Versions-Hinweis.</li>
+      <li>~30 Sekunden warten (GitHub-Pages-Build), Live-Seite mit Hard-Reload (⌘+Shift+R) prüfen.</li>
+    </ol>
+
+    <p style="margin-top:14px;font-size:12px;color:var(--text2);">Quelle der Daten: LOKATION:S Rahmenplan OSW 2025&ndash;2026, WISTA Regionalmanagement 2011&ndash;2017, Workshop-Protokolle der Standortgemeinschaft, Recherchen Industriesalon, Vor-Ort-Wissen einzelner Mitglieder. Vollständige Quellen-Liste siehe <em>📚 Quellen</em>-Panel.</p>
+
     <h3>Herausgeber</h3>
-    <p><strong>Industriesalon Schöneweide e.V.</strong><br>Reinbeckstraße 9&ndash;10, 12459 Berlin<br>
+    <p><strong>Industriesalon Schöneweide e.V.</strong><br>
+    Reinbeckstraße 10, 12459 Berlin-Oberschöneweide<br>
+    Tel. (030) 53 00 70 42 · <a href="mailto:info@industriesalon.de">info@industriesalon.de</a><br>
     <a href="https://www.industriesalon.de" target="_blank">industriesalon.de</a><br>
-    Sprecher Standortgemeinschaft: Klaus Burmeister</p>
-    <p style="font-size:12px;color:var(--text2);margin-top:16px;">Version Beta_02 (05-2026) &middot; v10 — Empira-Korrektur · Live-Karte (OSM, Voyager) · Aktualitäts-Ampel · Korrektur-Knopf · präzise Marker (Funkhaus, Spreepark, …)</p>
+    Vorstand: Alexa Steindorf-Aust (Vorsitzende), Klaus Burmeister (stellv. Vorsitzender), Susanne Reumschüssel<br>
+    Vereinsregister: AG Charlottenburg VR 29071 B · Gemeinnützig anerkannt (Freistellungsbescheid 21.09.2021)<br>
+    Sprecher Standortgemeinschaft Oberschöneweide: Klaus Burmeister</p>
+    <p style="font-size:12px;color:var(--text2);">Vollständiges Impressum und Datenschutzerklärung: Links im Footer der Karten-Ansicht.</p>
+    <p style="font-size:12px;color:var(--text2);margin-top:16px;">Version Beta_03 (05-2026) &middot; v11 — Impressum &amp; Datenschutz, Datenpflege-Workflow im Register, präzise Marker (Funkhaus, Spreepark, …), Empira-Korrektur, Live-Karte (OSM, Voyager), Aktualitäts-Ampel, Korrektur-Knopf, TransLab als Projektkontext</p>
+  </div>
+</div>
+
+
+<!-- IMPRESSUM PANEL -->
+<div class="overlay-panel" id="impressumPanel" onclick="if(event.target===this)this.classList.remove('show')">
+  <div class="overlay-content" style="max-width:760px;">
+    <button class="overlay-close" onclick="document.getElementById('impressumPanel').classList.remove('show')">&times;</button>
+    <h2>Impressum</h2>
+    <p style="color:var(--text2);font-size:13px;">Angaben gemäß §5 DDG (Digitale-Dienste-Gesetz) und §18 Abs. 2 MStV</p>
+
+    <h3>Anbieter</h3>
+    <p><strong>Industriesalon Schöneweide e.V.</strong><br>
+    Reinbeckstraße 10<br>
+    12459 Berlin-Oberschöneweide<br>
+    Deutschland</p>
+
+    <h3>Vertretungsberechtigter Vorstand (§26 BGB)</h3>
+    <p>Alexa Steindorf-Aust (Vorsitzende)<br>
+    Klaus Burmeister (stellvertretender Vorsitzender)</p>
+
+    <h3>Kontakt</h3>
+    <p>Telefon: <a href="tel:+4930530070042" style="color:var(--blue);">(030) 53 00 70 42</a><br>
+    E-Mail: <a href="mailto:info@industriesalon.de" style="color:var(--blue);">info@industriesalon.de</a><br>
+    Web: <a href="https://www.industriesalon.de" target="_blank" rel="noopener">www.industriesalon.de</a></p>
+
+    <h3>Registereintrag</h3>
+    <p>Vereinsregister Amtsgericht Berlin (Charlottenburg)<br>
+    Registernummer: <strong>VR 29071 B</strong> (laufende Nummer 3)</p>
+
+    <h3>Gemeinnützigkeit</h3>
+    <p style="font-size:13px;">Der Industriesalon Schöneweide e.V. ist als gemeinnützig anerkannt (Freistellungsbescheid des Finanzamts für Körperschaften I Berlin vom 21.09.2021).</p>
+
+    <h3>Verantwortlich für den Inhalt nach §18 Abs. 2 MStV</h3>
+    <p>Klaus Burmeister (Sprecher Standortgemeinschaft Oberschöneweide)<br>
+    c/o Industriesalon Schöneweide e.V.<br>
+    Reinbeckstraße 10, 12459 Berlin</p>
+
+    <h3>Projektkontext: TransLab</h3>
+    <p>Das Eigentümer- &amp; Investorenregister Schöneweide ist Teil von <strong>TransLab</strong> &mdash; einem Arbeits- und Erprobungsformat des Industriesalon Schöneweide e.V. für die kooperative Transformation des Zukunftsorts Schöneweide. TransLab versammelt Akteure aus Wirtschaft, Wissenschaft, Kultur, Verwaltung und Zivilgesellschaft und entwickelt Werkzeuge für ein gemeinsames Lagebild des Standorts.</p>
+
+    <h3>Haftung für Inhalte</h3>
+    <p style="font-size:13px;">Als Diensteanbieter sind wir nach §7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.</p>
+    <p style="font-size:13px;">Die Inhalte des Registers werden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Angaben übernehmen wir gleichwohl keine Gewähr. Eigentümer-, Investitions- und Nutzungsverhältnisse können sich ändern; Hinweise auf Unrichtigkeiten nehmen wir gern über den <em>&bdquo;✏️ Korrektur melden&ldquo;</em>-Knopf in jedem Eintrag entgegen.</p>
+
+    <h3>Haftung für Links</h3>
+    <p style="font-size:13px;">Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+
+    <h3>Urheberrecht</h3>
+    <p style="font-size:13px;">Die durch den Industriesalon Schöneweide e.V. erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Verwendung der Register-Daten für Forschung, Stadtentwicklung, journalistische und zivilgesellschaftliche Zwecke ist ausdrücklich erwünscht &mdash; bitte unter Quellenangabe &bdquo;Eigentümer- &amp; Investorenregister Schöneweide, Industriesalon Schöneweide e.V., TransLab&ldquo;.</p>
+
+    <h3>Streitschlichtung</h3>
+    <p style="font-size:13px;">Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+    <p style="font-size:11px;color:var(--text2);margin-top:20px;border-top:1px solid var(--border);padding-top:12px;">Stand: Mai 2026 · Beta_03 (v11)</p>
+  </div>
+</div>
+
+<!-- DATENSCHUTZ PANEL -->
+<div class="overlay-panel" id="datenschutzPanel" onclick="if(event.target===this)this.classList.remove('show')">
+  <div class="overlay-content" style="max-width:760px;">
+    <button class="overlay-close" onclick="document.getElementById('datenschutzPanel').classList.remove('show')">&times;</button>
+    <h2>Datenschutzerklärung</h2>
+    <p style="color:var(--text2);font-size:13px;">Information nach Art. 13, 14 DSGVO</p>
+
+    <h3>1. Verantwortlicher</h3>
+    <p>Industriesalon Schöneweide e.V.<br>
+    Reinbeckstraße 10, 12459 Berlin-Oberschöneweide<br>
+    Telefon: (030) 53 00 70 42 · E-Mail: <a href="mailto:info@industriesalon.de" style="color:var(--blue);">info@industriesalon.de</a><br>
+    Vertreten durch den Vorstand: Alexa Steindorf-Aust (Vorsitzende), Klaus Burmeister (stellv. Vorsitzender), Susanne Reumschüssel. Vollständige Angaben siehe <a href="#" onclick="document.getElementById('datenschutzPanel').classList.remove('show');document.getElementById('impressumPanel').classList.add('show');return false;" style="color:var(--accent);">Impressum</a>.</p>
+
+    <h3>2. Hosting auf GitHub Pages</h3>
+    <p style="font-size:13px;">Diese Seite wird über <strong>GitHub Pages</strong> ausgeliefert (Anbieter: GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA). Beim Aufruf der Seite werden technisch notwendige Daten an GitHub übertragen, insbesondere IP-Adresse, Datum/Uhrzeit, übertragene Datenmenge, Browsertyp. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der zuverlässigen Bereitstellung der Seite). GitHub-Datenschutzerklärung: <a href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">docs.github.com/site-policy/privacy-policies</a>.</p>
+
+    <h3>3. Externe Ressourcen</h3>
+    <p style="font-size:13px;">Diese Seite lädt beim Aufruf externe Ressourcen. Dabei erhalten die jeweiligen Anbieter Ihre IP-Adresse:</p>
+    <ul style="font-size:13px;line-height:1.7;padding-left:20px;">
+      <li><strong>Google Fonts</strong> (Google Ireland Ltd., Dublin) &mdash; Schriftarten Inter und Playfair Display. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+      <li><strong>unpkg.com / Cloudflare</strong> &mdash; Auslieferung der Kartenbibliothek Leaflet. <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com/privacypolicy</a></li>
+      <li><strong>CartoDB / OpenStreetMap</strong> &mdash; Auslieferung der Karten-Kacheln in der Live-Karte (nur wenn aktiviert). <a href="https://carto.com/privacy/" target="_blank" rel="noopener">carto.com/privacy</a> · <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">OSMF-Datenschutz</a></li>
+    </ul>
+    <p style="font-size:13px;">Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Lesbarkeit und Kartenfunktion). Eine Übermittlung in Drittländer (USA) kann erfolgen.</p>
+
+    <h3>4. Korrektur-Knopf / GitHub-Issues</h3>
+    <p style="font-size:13px;">Beim Klick auf <em>&bdquo;✏️ Korrektur melden&ldquo;</em> öffnet sich GitHub mit einem vorausgefüllten Issue-Formular. Wenn Sie das Issue absenden, übermitteln Sie Daten an GitHub (siehe oben). Die Übermittlung erfolgt nur auf Ihre eigene Initiative. Voraussetzung ist ein GitHub-Account.</p>
+
+    <h3>5. Keine Cookies, kein Tracking, keine Analyse</h3>
+    <p style="font-size:13px;">Diese Seite setzt <strong>keine Cookies</strong>, verwendet <strong>kein Tracking</strong> und <strong>keine Analyse-Tools</strong> (kein Google Analytics, kein Matomo, kein Plausible). Es werden keine personenbezogenen Daten von Ihnen durch uns selbst erhoben oder gespeichert.</p>
+
+    <h3>6. Ihre Rechte</h3>
+    <p style="font-size:13px;">Sie haben das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21 DSGVO). Beschwerden können Sie bei der zuständigen Aufsichtsbehörde einreichen: <strong>Berliner Beauftragte für Datenschutz und Informationsfreiheit</strong>, <a href="https://www.datenschutz-berlin.de" target="_blank" rel="noopener">datenschutz-berlin.de</a>.</p>
+
+    <p style="font-size:11px;color:var(--text2);margin-top:20px;border-top:1px solid var(--border);padding-top:12px;">Stand: Mai 2026 · Beta_03 (v11)</p>
   </div>
 </div>
 
@@ -546,7 +665,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
 <div class="header">
   <div class="header-left">
     <div class="logo-mark">S</div>
-    <div><h1>Eigentümer- & Investorenregister</h1><div class="subtitle">Zukunftsort Schöneweide &middot; Beta_02 (05-2026)</div></div>
+    <div><h1>Eigentümer- & Investorenregister</h1><div class="subtitle">Zukunftsort Schöneweide &middot; Beta_03 (05-2026)</div></div>
   </div>
   <div style="display:flex;align-items:center;gap:4px;">
     <button class="info-btn" onclick="document.getElementById('introPanel').classList.add('show')">ℹ Über den Standort</button>
@@ -816,18 +935,28 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
         <div class="unknown-card"><div class="q-mark">?</div><div><div class="name">Schnellerstr. / Britzer Str. (NSW)</div><div class="desc">Heterogene Eigentümer. Gewerbliche Nutzung.</div></div></div>
         <div class="unknown-card"><div class="q-mark">?</div><div><div class="name">Hasselwerder Str. / Ufer (NSW)</div><div class="desc">Mischgebiet. Öffentlicher Spreeufer-Zugang offen.</div></div></div>
       </div>
-      <div class="map-footer">Eigentümer- & Investorenregister &middot; Version Beta_02 (05-2026) &middot; 68 Profile &middot; Industriesalon Schöneweide e.V.</div>
+      <div class="map-footer">Eigentümer- & Investorenregister &middot; Version Beta_03 (05-2026) &middot; 68 Profile &middot; Industriesalon Schöneweide e.V. &middot; TransLab<br>
+      <a href="#" onclick="document.getElementById('impressumPanel').classList.add('show');return false;" style="color:var(--text2);margin:0 6px;text-decoration:underline;">Impressum</a> &middot;
+      <a href="#" onclick="document.getElementById('datenschutzPanel').classList.add('show');return false;" style="color:var(--text2);margin:0 6px;text-decoration:underline;">Datenschutz</a> &middot;
+      <a href="https://github.com/industriesalon-schoeneweide/schoeneweide-register" target="_blank" rel="noopener" style="color:var(--text2);margin:0 6px;text-decoration:underline;">GitHub-Repository</a></div>
     </div>
     <div class="detail-view" id="detailView"></div>
   </div>
 </div>
 
-<!-- CHANGELOG PANEL (Beta_02 / v10) -->
+<!-- CHANGELOG PANEL (Beta_03 / v11) -->
 <div class="overlay-panel" id="changelogPanel" onclick="if(event.target===this)this.classList.remove('show')">
   <div class="overlay-content">
     <button class="overlay-close" onclick="document.getElementById('changelogPanel').classList.remove('show')">&times;</button>
-    <h2>Neu in Beta_02 (v10)</h2>
-    <p style="color: var(--text2); margin-bottom: 20px;">Mai 2026 · Inhalts-Korrekturen + Live-Karte + Aktualitäts-Workflow</p>
+    <h2>Neu in Beta_03 (v11)</h2>
+    <p style="color: var(--text2); margin-bottom: 20px;">Mai 2026 · Rechtskonform + Datenpflege-Workflow + Live-Karte + Inhalts-Korrekturen</p>
+
+    <h3 style="margin-top: 16px;">Rechtskonformität &amp; Transparenz</h3>
+    <ul style="font-size: 13px; color: var(--text); line-height: 1.7; padding-left: 18px; margin-bottom: 18px;">
+      <li><strong>Vollständiges Impressum</strong> nach §5 DDG / §18 MStV (Footer-Link). TransLab als Projektkontext genannt.</li>
+      <li><strong>Datenschutzerklärung</strong> nach Art. 13/14 DSGVO mit Hinweis auf alle externen Ressourcen (GitHub Pages, Google Fonts, Carto/OSM).</li>
+      <li><strong>Datenpflege-Abschnitt</strong> im &bdquo;Über den Standort&ldquo;-Panel: Wie bleibt das Register aktuell? Stand-Ampel, Korrektur-Knopf, Sprechstunde, technischer Workflow &mdash; alles im Register dokumentiert.</li>
+    </ul>
 
     <h3 style="margin-top: 16px;">Inhaltliche Korrekturen</h3>
     <ul style="font-size: 13px; color: var(--text); line-height: 1.7; padding-left: 18px; margin-bottom: 18px;">

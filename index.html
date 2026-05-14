@@ -433,7 +433,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
     </div>
 
     <div class="wc-meta">
-      Diese Begrüßung wird nur beim ersten Besuch gezeigt. Über den Footer-Link <em>&bdquo;👋 Willkommen&ldquo;</em> oder den URL-Parameter <code>?welcome=1</code> jederzeit wieder aufrufbar.
+      Wer das Register direkt öffnen möchte (z.B. als Bookmark) — URL mit <code>?skip=1</code> anhängen, dann wird diese Startseite übersprungen. ESC schließt sie ebenfalls.
     </div>
   </div>
 </div>
@@ -1776,19 +1776,16 @@ document.addEventListener("keydown", function(e){
   }
 });
 
-// Welcome-Overlay: beim ersten Besuch zeigen, danach gemerkt via localStorage
-const WELCOME_KEY = "schoeneweide-register-welcome-seen-v1";
+// Welcome-Overlay als öffentliche Startseite: bei jedem Aufruf der Seite zeigen.
+// Nutzer kann via Button oder ESC zur App weiterklicken. Wer das Welcome komplett
+// überspringen will (z.B. Bookmark direkt in die App), hängt ?skip=1 an die URL.
 function showWelcome(){ const el = document.getElementById("welcomeOverlay"); if(el) el.classList.add("show"); }
-function dismissWelcome(){
-  const el = document.getElementById("welcomeOverlay");
-  if(el) el.classList.remove("show");
-  try { localStorage.setItem(WELCOME_KEY, new Date().toISOString()); } catch(e){}
-}
+function dismissWelcome(){ const el = document.getElementById("welcomeOverlay"); if(el) el.classList.remove("show"); }
 (function initWelcome(){
   try {
     const params = new URLSearchParams(window.location.search);
-    if(params.get("welcome") === "1"){ showWelcome(); return; }
-    if(!localStorage.getItem(WELCOME_KEY)) showWelcome();
+    if(params.get("skip") === "1") return; // explizit überspringen
+    showWelcome();
   } catch(e){ showWelcome(); }
 })();
 document.querySelectorAll(".filter-btn").forEach(btn=>{btn.onclick=()=>{document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active");af=btn.dataset.filter;renderList();};});
